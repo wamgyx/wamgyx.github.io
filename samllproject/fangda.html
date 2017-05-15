@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            position: relative;
+            overflow: hidden;
+        }
+        .item{
+            width: 300px;
+            height: auto;
+            /*border: 1px solid #333;*/
+            float: left;
+        }
+        .gai{
+            width: 300px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+        }
+        .item img{
+            display: block;
+            width: 300px;
+            height: auto;
+        }
+
+        .show{
+            width: 300px;
+            height: 300px;
+            /*border: 1px solid #666;*/
+            position: absolute;
+            left: 300px;
+            top: 0;
+            overflow: hidden;
+            display: none;
+        }
+        .show img{
+            display: block;
+            width: 900px;
+            height: auto;
+        }
+        .mask{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.5);
+            /*z-index: 2;*/
+            /*display: none;*/
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">
+            <div class="mask"></div>
+            <img src="1.jpg" alt="">
+        </div>
+
+        <div class="gai"></div>
+        <div class="show">
+            <img src="1.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        var box=document.querySelector(".gai");
+        var mask=document.querySelector(".mask");
+        var show=document.querySelector(".show");
+        var img=document.querySelector(".show img");
+        var bili=0;
+        bili=box.offsetWidth/mask.offsetWidth;
+        box.onmouseover=function(){
+            mask.style.opacity=1;
+            show.style.display="block";
+        }
+        box.onmouseout=function(){
+            mask.style.opacity=0;
+            show.style.display="none";
+        }
+        box.onmousemove=function(e){
+            var [ox,oy]=[e.offsetX,e.offsetY];
+            var [mx,my]=[ox-(mask.offsetWidth/2),oy-(mask.offsetHeight/2)];
+            console.log(ox,oy,mx,my);
+            if(mx<=0){
+                mx=0;
+            }
+            if(my<=0){
+                my=0;
+            }
+            if(mx>box.offsetWidth-mask.offsetWidth){
+                mx=box.offsetWidth-mask.offsetWidth;
+            }
+            if(my>box.offsetHeight-mask.offsetHeight){
+                my=box.offsetHeight-mask.offsetHeight;
+            }
+            mask.style.left=mx+"px";
+            mask.style.top=my+"px";
+            img.style.marginLeft=-bili*mx+"px";
+            img.style.marginTop=-bili*my+"px";
+        }
+    </script>
+</body>
+</html>

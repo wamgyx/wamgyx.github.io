@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>脸谱情-中华韵</title>
+    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_5fdvjxyv6aq3erk9.js">-->
+    <script src="js/hover.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/animate.js"></script>
+    <!--<script src="js/main.js"></script>-->
+    <style>
+        @font-face {
+            font-family: 'iconfont';
+            src: url('img/font/iconfont.eot');
+            src: url('img/font/iconfont.eot?#iefix') format('embedded-opentype'),
+            url('img/font/iconfont.woff') format('woff'),
+            url('img/font/iconfont.ttf') format('truetype'),
+            url('img/font/iconfont.svg#iconfont') format('svg');
+        }
+    </style>
+</head>
+<body>
+<div class="scene">
+    <ul class="box1">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li style="position: relative">
+            <div class="box">
+                <video src="国粹京剧唯美宣传片1.mp4" poster="img/startb.jpg">
+                    <!--<source src="1.mp4"></source>-->
+                </video>
+                <div class="kongjian">
+                    <div class="play iconfont">&#xe778;</div>
+                    <div class="replay iconfont">&#xe61a;</div>
+                    <div class="progress">
+                        <div class="inner"></div>
+                    </div>
+                    <!--<progress max="1000" min="0" value="0" background="#000"></progress>-->
+                    <div class="time"></div>/
+                    <div class="time"></div>
+                    <div class="quanp iconfont">&#xe66b;</div>
+                    <div style="width: 50px;height: 50px;float: right">
+                        <div class="yinl iconfont">&#xe757;</div>
+                        <div class="tiaojie">
+                            <div class="in">
+                                <div class="ss"></div>
+                                <div class="gai" style="width: 100%;height: 100%;position: relative;left: 0;top: 0"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="all">
+                <div class="nav"></div>
+                <div class="lianpubox">
+                    <div class="fengmian"></div>
+                </div>
+                <div class="lianname">
+                    <dl class="name">
+                        <dd class="name1">夏&nbsp;侯&nbsp;婴:《追韩信》</dd>
+                        <dd class="name1">安&nbsp;禄&nbsp;山:《太真外传》</dd>
+                        <dd class="name1">晋&nbsp;鄙:《兵符记》</dd>
+                        <dd class="name1">宣&nbsp;赞:《收关胜》</dd>
+                        <dd class="name1">体&nbsp;高&nbsp;罗&nbsp;汉:《斗悟空》</dd>
+                        <dd class="name1">李&nbsp;元&nbsp;霸:《四平山》</dd>
+                        <dd class="name1">关&nbsp;羽:《华容道》</dd>
+                        <dd class="name1">傅&nbsp;龙:《状元媒》</dd>
+                        <dd class="name1">邓&nbsp;九&nbsp公:《十三妹》</dd>
+                        <dd class="name1">程&nbsp;晋:《凤凰二桥》</dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    document.execCommand("BackgroundImageCache", false, true);
+
+    var tops=document.querySelector("li:nth-child(1)");
+    var bottom=document.querySelector("li:nth-child(3)");
+    var front=document.querySelector("li:nth-child(5)");
+    var bofang=document.querySelector("li:nth-child(7)");
+    var box1=document.querySelector(".box1");
+    var clientW=window.innerWidth;
+    var clientH=window.innerHeight;
+    tops.style.width= clientW+"px";
+    tops.style.height=clientW+"px";
+//    console.log(tops.style.heigth)
+    bottom.style.width=clientW+"px";
+    bottom.style.height=clientW+"px";
+    bottom.style.top=clientH-clientW+"px";
+    front.style.transform=`translateZ(${clientW}px) rotateY(180deg)`;
+//    front.style.transform=`translate3d(0,0,100px) rotateY(180deg)`;
+    bofang.style.transform=`translateZ(${clientW*0.68}px)`;
+    box1.style.transform="translateZ(-400px)";
+    box1.style.transformOrigin="center center 500px";
+    var startangle=0;
+    var nowangle=65;
+    box1.style.transform=`translateZ(-400px) rotateY(${startangle+nowangle}deg)`;
+    document.onmousedown=function (e) {
+        e.preventDefault();
+        var sx=e.clientX;
+        document.onmousemove=function (e) {
+            var cx=e.clientX;
+            nowangle=cx-sx;
+            box1.style.transform=`translateZ(-400px) rotateY(${(startangle+nowangle)/2}deg)`;
+        };
+        document.onmouseup=function (e) {
+            startangle+=nowangle;
+            document.onmousemove=null;
+            document.onmouseup=null;
+        }
+    };
+
+    const box=document.querySelector(".box");
+    const play=document.querySelector(".play");
+    const video=document.querySelector("video");
+    const replay=document.querySelector(".replay");
+    const progress=document.querySelector(".inner");
+    const time=document.querySelectorAll(".time");
+    const yin=document.querySelector(".yinl");
+    const tiaojie=document.querySelector(".tiaojie");
+    const vol=document.querySelector(".in");
+    const ss=document.querySelector(".ss");
+    const gai=document.querySelector(".gai");
+    const quanp=document.querySelector(".quanp");
+    let flag=true;
+    let flag2=true;
+    let flag3=true;
+//    if(video.play()){
+//        play.innerHTML="&#xe640;";
+//    }
+    play.onclick=function(){
+        if(flag){
+            flag=false;
+            video.play();
+            play.innerHTML="&#xe640;";
+        }else{
+            video.pause();
+            play.innerHTML="&#xe778;";
+            flag=true;
+        }
+    };
+    replay.onclick=function(){
+        video.load();
+        play.innerHTML="&#xe778;";
+        flag=true;
+        progress.style.width = 0;
+    };
+    video.ontimeupdate=function(e) {
+        time[0].innerHTML=getTime(video.currentTime);
+        if (video.currentTime == 0) {
+            progress.style.width = 0;
+        } else {
+            progress.style.width = progress.parentNode.offsetWidth * (video.currentTime / video.duration)+"px";
+        }
+        if (video.currentTime == video.duration) {
+            play.innerHTML = "&#xe778;";
+            flag = true;
+        }
+    };
+    video.oncanplay=function(){
+        let alltime=video.duration;
+        time[1].innerHTML=getTime(alltime);
+        time[0].innerHTML=getTime(video.currentTime);
+    };
+    function getTime(alltime){
+        let h=Math.floor(alltime/60/60);
+        let m=Math.floor(alltime/60%60);
+        let s=Math.floor(alltime%60);
+        return `${h<10?0+""+h:h}:${m<10?0+""+m:m}:${s<10?0+""+s:s}`;
+    };
+    progress.parentNode.onclick=function(e){
+        e.preventDefault();
+        let l=e.offsetX;
+        progress.style.width=l+"px";
+        let bili=l/this.offsetWidth;
+        video.currentTime=bili*video.duration;
+    };
+    progress.parentNode.onmousedown=function(){
+        window.onmousemove=function(e){
+            let w=e.clientX-progress.parentNode.offsetLeft-progress.parentNode.parentNode.offsetLeft;
+            progress.style.width=w+"px";
+            let l=progress.offsetWidth;
+            let bili=l/progress.parentNode.offsetWidth;
+            video.currentTime=bili*video.duration;
+        }
+    };
+    window.onmouseup=function(){
+        window.onmousemove=null;
+    };
+    hover(yin.parentNode,function(){tiaojie.style.display="block";},function(){
+        tiaojie.style.display="none";
+        tiaojie.onmousemove=null;
+    });
+    function panduan(e){
+        if(e.offsetY<=5){
+            ss.style.marginTop=0;
+
+            yin.innerHTML="&#xe757;"
+            video.muted=false;
+        }else if(e.offsetY>=105){
+            ss.style.marginTop=100+"px";
+            yin.innerHTML="&#xe62d;";
+            video.muted=true;
+        }else{
+            ss.style.marginTop=e.offsetY-5+"px";
+            video.muted=false;
+            yin.innerHTML="&#xe757;";
+        }
+        video.volume=1-parseInt(ss.style.marginTop)/100;
+    }
+    yin.onclick=function(){
+        if(flag2){
+            ss.style.marginTop=100+"px";
+            yin.innerHTML="&#xe62d;";
+            video.muted=true;
+        }else{
+            video.muted=false;
+            yin.innerHTML="&#xe757;";
+        }
+        flag2=!flag2;
+    };
+    gai.onclick=function(e){
+        panduan(e);
+    };
+    gai.onmousedown=function(){
+        console.log(tiaojie)
+        tiaojie.onmousemove=function(e){
+            panduan(e);
+        };
+    };
+
+    tiaojie.onmouseup=function(){
+        tiaojie.onmousemove=null;
+        gai.onmouseup=null;
+    }
+
+    quanp.onclick= quan;
+    video.ondblclick=quan;
+    function quan(){
+        if(flag3){
+            quanp.innerHTML="&#xe644;";
+            box.style.width="100%";
+            box.style.height="100%";
+        }else{
+            quanp.innerHTML="&#xe66b;";
+            box.style.width="800px";
+            box.style.height="600px";
+        }
+        flag3=!flag3;
+    }
+
+
+    function $(select,obj=document){
+        if(typeof select=="function"){
+            // window.onload=function(){
+            // 	select();
+            // };
+            window.addEventListener("load",select,false);
+        }else if(typeof select=='string'){
+            // <>
+            // 正则
+            //   /^</ 开头是小于号   \w+  表示字母数字下划线比1个多   >$ 以>号结束
+            // alert(/^<\w+>$/.test(select));
+            if(/^<\w+>$/.test(select)){
+                // 创建元素
+                return document.createElement(select.slice(1,-1));
+            }
+            return obj.querySelectorAll(select);
+        }
+    }
+
+    const lianpubox=$(".lianpubox")[0];
+    const fengmian=$(".fengmian")[0];
+    const name=$(".name")[0];
+//    let nowname=lianname[0];
+    let num=0;
+    let biaoji=1;
+    setTimeout(function () {
+        fengmian.style.top=440+"px";
+    },3000);
+    let bianhua1=setInterval(function(){
+        fengmian.style.top=440+"px";
+    },10000);
+    fengmian.addEventListener("transitionend",function(){
+        if(fengmian.offsetTop!=-440){
+            fengmian.style.top=-440+"px";
+        }
+
+        biaoji++;
+        if(biaoji==65){
+            fengmian.style.top=-440+"px";
+        }
+        console.log(fengmian.offsetTop);
+        if((biaoji%2==0||biaoji==44)&&(fengmian.offsetTop==440)){
+            num++;
+            if(num>9){
+                num=0;
+            }
+            console.log(`url(../img/lianpu${num}.png)`);
+            setTimeout(function () {
+                lianpubox.style.backgroundImage=`url(img/lianpu${num}.png)`;
+                name.style.marginTop=-(num)*100+"px";
+//                nowname.style.display="none";
+//                lianname[num-1].style.display="block";
+//                nowname=lianname[num-1];
+            },1500);
+        }
+    })
+</script>
+<html>

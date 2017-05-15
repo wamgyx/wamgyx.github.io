@@ -1,0 +1,43 @@
+*{
+	margin: 0;
+	padding: 0;
+	/*list-style: none;*/
+
+	font-family: 微软雅黑;
+}
+.lybbox{
+	width: 800px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+.lybbox textarea{
+	width: 800px;
+	height: 200px;
+	resize: none;
+}
+.lybbox input[type=button]{
+	float: right;
+}
+.con{
+	width: 800px;
+	margin: 0 auto;
+	
+}
+.con ul{
+	display: flex;
+	flex-direction: column-reverse;
+	/*flex-direction: column-reverse;*/
+}
+.con ul li{
+	font-size: 20px;
+	word-wrap: break-word;
+}
+.tishi{
+	/*清楚右侧的浮动 到另外一行*/
+	/*clear: right;*/
+	float: left;
+}
+.tishi span,.tishi i{
+	color: red;
+}

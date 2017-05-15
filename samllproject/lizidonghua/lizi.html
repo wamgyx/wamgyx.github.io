@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>粒子动画</title>
+    <style>
+        canvas{
+            background: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500"></canvas>
+    <script>
+        window.onload=function() {
+            let canvas = document.querySelector("canvas");
+            let cobj=canvas.getContext("2d");
+            let x=200;
+            let y=200;
+            canvas.onmousemove=function(e){
+                x=e.offsetX;
+                y=e.offsetY;
+            }
+            class lizi{
+                constructor(canvas,cobj,x,y){
+                    this.canvas=canvas;
+                    this.cobj=cobj;
+                    this.banjing=5;
+                    this.r=5;
+                    this.x=x;
+                    this.y=y;
+                    this.speedX=4*Math.random()-2;
+//                    this.speedY=4*Math.random()-2;
+                    this.speedY=-5;
+                    this.g=0.3;
+                    this.color=`rgb(${parseInt(255*Math.random())},${parseInt(255*Math.random())},${parseInt(255*Math.random())})`;
+                   this.size=6*Math.random()-3;
+                }
+                draw(){
+                    this.cobj.save();
+                    this.cobj.translate(this.x,this.y);
+                    this.cobj.beginPath();
+                    this.cobj.arc(0,0,this.banjing,0,Math.PI*2);
+                    this.cobj.fillStyle=this.color;
+                    this.cobj.fill();
+                    this.cobj.restore();
+                }
+                update(){
+                    this.x+=this.speedX;
+                    this.speedY+=this.g;
+                    this.y+=this.speedY;
+                    this.banjing=this.r-this.size;
+                }
+            }
+//            let liziobj=new lizi(canvas,cobj);
+            let arr=[];
+
+            let t=setInterval(function(){
+                cobj.clearRect(0,0,500,500);
+                let liziobj=new lizi(canvas,cobj,x,y);
+                arr.push(liziobj);
+                for(let i=0;i<arr.length;i++){
+                    arr[i].draw();
+                    arr[i].update();
+                }
+                if(arr.length>=100){
+                    arr.shift();
+                }
+            },50);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+
+
+
+/*大屏*/
+.neikuan{
+	width: 980px;
+	margin: 0 auto;
+}
+header{
+	height: 40px;
+	background: #444;
+}
+.guanggao{
+	float: right;
+	line-height: 40px;
+	font-size: 12px;
+	color: #a8a8aa; 
+}
+nav{
+	height: 44px;
+	background: #303030;
+}
+nav>.neikuan>ul{
+	text-align: justify;
+}
+nav>.neikuan>ul:after{
+	content: "";
+	display: inline-block;
+	width: 100%;
+}
+nav>.neikuan>ul>li{
+	display: inline-block;
+	color: #fff;
+	line-height: 44px;
+	font-size: 12px;
+}
+nav>.neikuan>ul>.iconfont{
+	font-size: 18px;
+}
+
+.col-lg-none{
+	display: none!important;
+}
+.col-lg-inblock{
+	display: inline-block!important;
+}
+
+
+
+/*中屏*/
+@media screen and (max-width: 1068px) {
+	.neikuan{
+		width: 100%;
+	}
+	.guanggao{
+		margin-right: 25px;
+	}
+	nav>.neikuan>ul>li:nth-child(2){
+		margin-left: 25px;
+	}
+	nav>.neikuan>ul>li:last-child{
+		margin-right: 25px;
+	}
+	.col-md-none{
+		display: none!important;
+	}	
+
+}
+
+/*小屏*/
+@media screen and (max-width: 735px) {
+
+	/*nav>.neikuan>ul>.menu{
+		display: inline-block;
+	}*/
+	.col-sm-inblock{
+		display: inline-block!important;
+	}
+	nav>.neikuan>ul>li:nth-child(2){
+		margin-left: 0px;
+	}
+	nav>.neikuan>ul>li:first-child{
+		margin-left: 25px;
+	}
+	nav>.neikuan>ul>.main_nav{
+		display: none;
+	}
+}
+
+
+
+
+
+
+.clear:after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+}

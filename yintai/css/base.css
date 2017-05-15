@@ -1,0 +1,38 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+    font-style: normal;
+}
+html{
+	color: #666;
+	background-color: #eee;
+}
+body{
+	font-size: 12px;
+	font-family: Verdana;
+}
+a{
+	color: #666;
+	text-decoration: none;
+}
+.clear:after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+}
+.neikuan{
+	width: 1190px;
+	margin: 0 auto;
+}
+a:hover {
+	color: #e5004f;
+}
+.all{
+	background-color: #fff;
+}
+img {
+	background: url(../img/12.jpg) center center no-repeat;
+}

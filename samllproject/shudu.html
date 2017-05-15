@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数独</title>
+    <!--<script src="function.js"></script>-->
+    <style>
+        *{
+            border: 0;
+            padding: 0;
+            border-spacing: 0px;
+        }
+        body{
+            position: relative;
+        }
+        .box{
+            width: 540px;
+            height: 540px;
+            /*background-color: green;*/
+            background-image: url(beijing.jpg);
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .gezi{
+            width: 60px;
+            height:60px;
+            box-sizing: border-box;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            float: left;
+            background-color: red;
+            font-size: 35px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 60px;
+            color: #584f4f;
+            cursor: pointer;
+        }
+        .gezi:nth-child(3n){
+            border-right: 4px solid blue;
+        }
+        .small1{
+            background-color: #fff;
+        }
+        .small2{
+            background-color: #9c9ca8;
+        }
+        .small3{
+            background-color: #fff;
+        }
+        .small4{
+            background-color: #9c9ca8;
+        }
+        .small5{
+            background-color: yellow;
+        }
+        .small6{
+            background-color: #9c9ca8;
+        }
+        .small7{
+            background-color: #fff;
+        }
+        .small8{
+            background-color: #9c9ca8;
+        }
+        .small9{
+            background-color: #fff;
+        }
+        .jieshu{
+            width: 100%;
+            height: 540px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .jiemain{
+            width: 200px;
+            height: 540px;
+            background-color: #cac9c9;
+            position: absolute;
+            left: 50%;
+            margin-left: -500px;
+            top: 8px;
+        }
+        .start,.end,.again{
+            width: 150px;
+            height: 55px;
+            margin: 30px auto;
+            background-color: blue;
+            text-align: center;
+            line-height: 55px;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 26px;
+            font-family: 微软雅黑;
+        }
+        .lose,.succeed,.select{
+            width: 400px;
+            height: 200px;
+            background-color: rgba(42, 30, 30, 0.73);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: none;
+        }
+        .lose p,.succeed p{
+            text-align: center;
+            color: #fff;
+            font-size: 25px;
+        }
+        .btn1,.btn2,.btn3,.btn4,.btn5,.btn6,.btn7,.btn8{
+            width: 100px;
+            height: 50px;
+            background-color: blue;
+            margin: 20px 50px;
+            float: left;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            font-size: 21px;
+        }
+        .btn5,.btn6,.btn7,.btn8{
+            margin: 5px auto;
+            float: none;
+            background-color: #0ad384;
+        }
+        .jiemain p{
+            font-size: 12px;
+            font-family: 微软雅黑;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table class="box">
+
+    </table>
+    <div class="jiemain">
+        <div class="start" style="color: #959292">开始</div>
+        <div class="end" style="color: #959292">完成</div>
+        <div class="again" style="color: #959292">重新开始</div>
+        <div class="btn5">初级</div>
+        <div class="btn6">中级</div>
+        <div class="btn7">高级</div>
+        <div class="btn8">骨灰级</div>
+        <p>提示：先选择困难程度才能开始</p>
+    </div>
+
+    <div class="jieshu">
+        <div class="lose">
+            <p>失败! 没有完成游戏</p>
+            <div class="btn1">继续填写</div>
+            <div class="btn2">新游戏</div>
+        </div>
+        <div class="succeed">
+            <p>恭喜完成！</p>
+            <div class="btn3">新游戏</div>
+            <div class="btn4">退出</div>
+        </div>
+    </div>
+
+
+    <script>
+        // $函数
+        function $(select,obj=document){
+            if(typeof select=="function"){
+                // window.onload=function(){
+                // 	select();
+                // };
+                window.addEventListener("load",select,false);
+            }else if(typeof select=='string'){
+                // <>
+                // 正则
+                //   /^</ 开头是小于号   \w+  表示字母数字下划线比1个多   >$ 以>号结束
+                // alert(/^<\w+>$/.test(select));
+                if(/^<\w+>$/.test(select)){
+                    // 创建元素
+                    return document.createElement(select.slice(1,-1));
+                }
+                return obj.querySelectorAll(select);
+            }
+        }
+
+        window.onload=function(){
+
+            const start=$(".start")[0];
+            const again=$(".again")[0];
+            const end=$(".end")[0];
+
+            let flag1=false;
+            let flag2=false;
+            let cishu=1;
+            const box=$(".box")[0];
+            const jiemian=$(".jiemain")[0];
+            let nowlevel=jiemian.children[3];
+            let level=20;
+//            选择困难程度
+            for(let i=0;i<4;i++){
+                jiemian.children[i+3].onclick=function() {
+                        nowlevel.style.color = "#fff";
+                        level = (i + 3) * 10;
+                        jiemian.children[i + 3].style.color = "red";
+                        if (cishu == 1) {
+                            flag1 = true;
+                            jiemian.children[0].style.color = "#fff";
+                        }else{
+                            again.style.color="#fff";
+                            flag2=true;
+                        }
+                        nowlevel = jiemian.children[i + 3];
+                }
+            }
+
+//            给格子填好背景色和边框
+            function beijing() {
+                for(let i=0;i<9;i++){
+                    for(let j=0;j<9;j++){
+                        box.children[i].children[j].className="";
+                        box.children[i].children[j].style.borderBottom="1px solid #000";
+                        box.children[i].children[j].style.borderTop="0px";
+                        box.children[i].children[j].style.borderLeft="0px";
+                        if((i+1)%3==0){
+                            box.children[i].children[j].style.borderBottom="4px solid blue"
+                        }
+                        if(i==0){
+                            box.children[i].children[j].style.borderTop="4px solid blue"
+                        }
+                        if(j==0){
+                            box.children[i].children[j].style.borderLeft="4px solid blue"
+                        }
+                        if(i<=2&&j<=2){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small1");
+                        }else if(i<=2&&j<=5){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small2");
+                        }else if(i<=2&&j<=8){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small3");
+                        }else if(i<=5&&j<=2){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small4");
+                        }else if(i<=5&&j<=5){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small5");
+                        }else if(i<=5&&j<=8){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small6");
+                        }else if(i<=8&&j<=2){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small7");
+                        }else if(i<=8&&j<=5){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small8");
+                        }else if(i<=8&&j<=8){
+                            box.children[i].children[j].classList.add("gezi");
+                            box.children[i].children[j].classList.add("small9");
+                        }
+                    }
+                }
+            }
+
+//            打乱任意两行  即交换任意两行
+            function swaprow(x1,x2){
+               box.insertBefore(box.children[x2],box.children[x1]);
+               box.insertBefore(box.children[x1+1],box.children[x2+1]);
+               beijing();
+            }
+
+//            交换任意两列
+            function swapcol(y1,y2){
+                for(let i=0;i<9;i++){
+                    box.children[i].insertBefore(box.children[i].children[y2],box.children[i].children[y1]);
+                    box.children[i].insertBefore(box.children[i].children[y1+1],box.children[i].children[y2+1]);
+                }
+                beijing();
+            }
+
+//            交换三行
+            function swaprow3(type1){
+                if(type1==1){
+                    swaprow(0,3);
+                    swaprow(1,4);
+                    swaprow(2,5);
+                }else if(type1==2){
+                    swaprow(0,6);
+                    swaprow(1,7);
+                    swaprow(2,8);
+                }else if(type1==3){
+                    swaprow(3,6);
+                    swaprow(4,7);
+                    swaprow(5,8);
+                }
+                swaprow(0,1);
+                swaprow(3,4);
+                swaprow(6,7);
+            }
+
+//            交换三列
+            function swapcol3(type1) {
+                if (type1 == 1) {
+                    swapcol(0, 3);
+                    swapcol(1, 4);
+                    swapcol(2, 5);
+                } else if (type1 == 2) {
+                    swapcol(0, 6);
+                    swapcol(1, 7);
+                    swapcol(2, 8);
+                } else if (type1 == 3) {
+                    swapcol(3, 6);
+                    swapcol(4, 7);
+                    swapcol(5, 8);
+                }
+                swapcol(1, 2);
+                swapcol(3, 4);
+                swapcol(7, 8);
+            }
+
+//            创建好每格，个每格写入初始数据
+            function create(){
+                for(let i=0;i<9;i++){
+                    let trs=document.createElement("tr");
+                    for(let j=0;j<9;j++){
+                        let tds=document.createElement("td");
+                        tds.classList.add("gezi");
+
+                        if(j+(i+1)>9){
+                            tds.innerHTML=`${(j+(i+1))%9}`;
+                        }else{
+                            tds.innerHTML=`${j+(i+1)}`;
+                        }
+                        trs.appendChild(tds);
+                    }
+                    box.appendChild(trs);
+                }
+                beijing();
+                swaprow(1, 3);
+                swaprow(2, 6);
+                swaprow(5, 7);
+                swapcol(1,4);
+                swapcol(1,7);
+
+                randomx=Math.floor(Math.random()*3+1);
+                randomy=Math.floor(Math.random()*3+1);
+
+                swaprow3(randomx);
+                swapcol3(randomy);
+            }
+
+//            随机遮盖指定个数的数字
+            function cover(num){
+                for(let i=0;i<num;i++){
+                    let x=Math.floor(Math.random()*9);
+                    let y=Math.floor(Math.random()*9);
+                    box.children[x].children[y].id=box.children[x].children[y].innerHTML;
+                    box.children[x].children[y].innerHTML="";
+                    box.children[x].children[y].style.fontSize="40px";
+                    box.children[x].children[y].contentEditable="true";
+                    box.children[x].children[y].style.color="#000";
+                }
+            }
+
+//            比较输入的是否有重复
+            function check(obj){
+                let name=obj.className;
+//            检查同一行
+                let parentobj=obj.parentNode;
+                let index=0;
+                for(let i=0;i<parentobj.children.length;i++){
+                    if(parentobj.children[i]!=obj){
+                        if(obj.innerHTML==parentobj.children[i].innerHTML){
+                            obj.style.color="red";
+                            return;
+                        }else{
+                            obj.style.color="#000";
+                        }
+                    }else{
+                        index=i;
+                    }
+                }
+
+//                检查同一列
+                for(let i=0;i<9;i++){
+                    if(parentobj.parentNode.children[i].children[index]!=obj) {
+                        if (obj.innerHTML == parentobj.parentNode.children[i].children[index].innerHTML) {
+                            obj.style.color = "red";
+                            return;
+                        } else {
+                            obj.style.color = "#000";
+                        }
+                    }
+                }
+
+//                检查同一九宫格
+                let jihe=document.getElementsByClassName(name);
+                for(let i=0;i<jihe.length;i++){
+                    if(jihe[i]!=obj) {
+                        if (obj.innerHTML == jihe[i].innerHTML) {
+                            obj.style.color = "red";
+                            return;
+                        } else {
+                            obj.style.color = "#000";
+                        }
+                    }
+                }
+            }
+
+//            点击某个框输入
+            box.onclick=function(e){
+                if(e.target.id){
+                    e.target.style.color="#000";
+                }
+                e.target.onblur=function(){
+                    check(e.target);
+                }
+            };
+
+//            判断填完之后是否正确
+            function judged(){
+                for(let i=0;i<9;i++){
+                    for(let j=0;j<9;j++){
+                        if(box.children[i].children[j].id){
+                            if(box.children[i].children[j].id!=box.children[i].children[j].innerHTML){
+                                return 0;
+                            }
+                        }
+                    }
+                }
+                return 1;
+            }
+
+//            清除所有内容
+            function clear(){
+                for(let i=0;i<9;i++){
+                    box.removeChild(box.children[0]);
+                }
+            }
+
+            let randomx;
+            let randomy;
+            start.onclick=function(){
+                if(flag1) {
+                    cishu++;
+//                    flag3=false;
+                    start.style.color="#959292";
+                    end.style.color="#fff";
+                    flag1=false;
+//                    flag2=true;
+//            创建好最初始的数独排列
+                    create();
+                    cover(level);
+                }
+            };
+            again.onclick=function(){
+                if(flag2) {
+                    flag2=true;
+                    clear();
+                    create();
+                    cover(level);
+                }
+            };
+
+            const lose=$(".lose")[0];
+            end.onclick=function(){
+                let p=judged();
+                if(p==0){
+                    lose.style.display="block";
+                    lose.parentNode.style.display="block";
+                }else{
+                    const succeed=$(".succeed")[0];
+                    succeed.style.display="block";
+                    succeed.parentNode.style.display="block";
+                }
+            }
+            const btn1=$(".btn1")[0];
+            const btn2=$(".btn2")[0];
+            const btn3=$(".btn3")[0];
+            const btn4=$(".btn4")[0];
+            btn1.onclick=function(){
+                lose.style.display="none";
+                lose.parentNode.style.display="none";
+            }
+            btn2.onclick=function(){
+                lose.style.display="none";
+                lose.parentNode.style.display="none";
+                clear();
+                create();
+                cover(level);
+            };
+            btn3.onclick=function(){
+                lose.style.display="none";
+                lose.parentNode.style.display="none";
+                clear();
+                create();
+                cover(level);
+            };
+            btn4.onclick=function(){
+                window.close();
+            }
+
+
+//            const box=$(".box")[0];
+//            class shudu{
+//                constructor(box){
+//                    this.box=box;
+//                    this.x=0;
+//                    this.y=0;
+//                    this.arrx=[1,2,3,4,5,6,7,8,9];
+//                    this.arry=[1,2,3,4,5,6,7,8,9];
+//                    this.index=1;
+//                    this.indexX=9;
+//                    this.indexY=9;
+//                }
+//                play(){
+//                    this.pumanbox();
+////                    this.writenum();
+//                    this.write();
+//                }
+////                创建每个小格
+//                creategezi(x,y){
+//                    let gezi=$("<div>");
+//                    gezi.classList.add("gezi");
+//                    gezi.id=`${x}-${y}`;
+//                    gezi.setAttribute("idx",`${x}`);
+//                    gezi.setAttribute("idy",`${y}`);
+//                    if(x==2|x==5|x==8){
+//                        gezi.style.borderBottom="4px solid blue";
+//                    }
+//                    if(y==0){
+//                        gezi.style.borderLeft="4px solid blue";
+//                    }
+//                    if(x==0){
+//                        gezi.style.borderTop="4px solid blue";
+//                    }
+//                    if(x<=2&&y<=2){
+//                        gezi.classList.add("small1");
+//                    }else if(x<=2&&y<=5){
+//                        gezi.classList.add("small2");
+//                    }else if(x<=2&&y<=8){
+//                        gezi.classList.add("small3");
+//                    }else if(x<=5&&y<=2){
+//                        gezi.classList.add("small4");
+//                    }else if(x<=5&&y<=5){
+//                        gezi.classList.add("small5");
+//                    }else if(x<=5&&y<=8){
+//                        gezi.classList.add("small6");
+//                    }else if(x<=8&&y<=2){
+//                        gezi.classList.add("small7");
+//                    }else if(x<=8&&y<=5){
+//                        gezi.classList.add("small8");
+//                    }else if(x<=8&&y<=8){
+//                        gezi.classList.add("small9");
+//                    }
+//
+//                    this.box.appendChild(gezi);
+//                }
+////                用小格铺满盒子
+//                pumanbox(){
+//                    for(let i=0;i<9;i++){
+//                        for(let j=0;j<9;j++){
+//                            this.creategezi(i,j);
+//                        }
+//                    }
+//                }
+////                给一个格子写一个1-9的随机数
+//                writenum(kuai){
+//                    if(kuai){
+//                        if(kuai.getAttribute("idy")==0){
+////                            this.arr1=[1,2,3,4,5,6,7,8,9];
+//                            this.arr2=[1,2,3,4,5,6,7,8,9];
+//                            this.indexX=9;
+//                        }
+//                        if(kuai.getAttribute("idx")>0){
+////                            非第一行
+//                            this.arr2=[1,2,3,4,5,6,7,8,9];
+////                            循环列
+//                            for(let i=0;i<kuai.getAttribute("idx");i++){
+//                                let ele=document.getElementById(`${i}-${kuai.getAttribute("idy")}`);
+//                                if(this.arr2.indexOf(parseInt(ele.innerHTML))!=-1){
+//                                    this.arr2.splice((this.arr2.indexOf(parseInt(ele.innerHTML))),1) ;
+//                                    this.indexX=this.arr2.length;
+//                                }
+//                            }
+////                            循环行
+//                            for(let i=0;i<kuai.getAttribute("idy");i++){
+//                                let ele=document.getElementById(`${kuai.getAttribute("idx")}-${i}`);
+//                                if(this.arr2.indexOf(parseInt(ele.innerHTML))!=-1){
+//                                    this.arr2.splice((this.arr2.indexOf(parseInt(ele.innerHTML))),1) ;
+//                                    this.indexX=this.arr2.length;
+//                                }
+//                            }
+////                            循环遍历九宫格
+////                            console.log(kuai.className);
+//                            let smallbox=document.getElementsByClassName(kuai.className);
+////                            console.log(smallbox);
+//                            for(let i=0;i<smallbox.length;i++){
+//                                if(smallbox[i].innerHTML){
+//                                    if(this.arr2.indexOf(parseInt(smallbox[i].innerHTML))!=-1) {
+//                                        this.arr2.splice((this.arr2.indexOf(parseInt(smallbox[i].innerHTML))), 1);
+//                                        this.indexX = this.arr2.length;
+//                                        console.log(smallbox[i].innerHTML)
+//                                    }
+//                                }
+//                            }
+//                            let xiabiao=Math.floor(Math.random()*this.indexX);
+//                            let num=this.arr2[xiabiao];
+//                            kuai.innerHTML=`${num}`;
+//                        }else{
+////                            第一行
+//                            let xiabiao=Math.floor(Math.random()*this.indexX);
+//                            let num=this.arr2[xiabiao];
+//                            kuai.innerHTML=`${num}`;
+//                            this.arr2.splice(xiabiao,1);
+//                            this.indexX--;
+//                        }
+//                    }
+//                }
+////                给每个格子写入数字
+//                write(){
+//                    for(let i=0;i<9;i++){
+//                        for(let j=0;j<9;j++){
+//                            let div=document.getElementById(`${i}-${j}`);
+//                            this.writenum(div);
+//                        }
+//                    }
+//                }
+//            }
+//
+//
+//            let shudu1=new shudu(box);
+//            shudu1.play();
+        }
+    </script>
+</body>
+</html>

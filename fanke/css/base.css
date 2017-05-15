@@ -1,0 +1,11 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+ul li{
+	list-style-type: circle;
+	list-style: none;
+}

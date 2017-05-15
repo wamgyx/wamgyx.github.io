@@ -1,0 +1,63 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+	box-sizing: border-box!important;
+}
+h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dd,dt,form,input,textarea,pre,figure,body{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+p{
+	margin: 0 0 10px;
+}
+h1,h2,h3,h4{
+	margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-weight: 400;
+}
+h5{
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+a{
+	text-decoration: none;
+	color: #ff8000;
+}
+a:hover{
+	text-decoration: underline;
+}
+img{
+	border: 0;
+	vertical-align: middle;
+}
+i,ul,del,b{
+	font-style: normal;
+	text-decoration: none;
+	font-weight: normal;
+	padding: 0;
+}
+body{
+	font-family: "Tahoma","微软雅黑","SF Pro SC","HanHei SC","SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
+	color: #333;
+	line-height: 20px;
+	font-size: 14px;
+	font-weight: 400;
+}
+form{
+	display: block;
+    margin-top: 0em;
+}
+.clear:after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+}
+.input{
+	font-family: inherit;
+}

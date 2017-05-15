@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html body{
+            height: 1500px;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+        .biaoti{
+            height: 100px;
+            width: 100%;
+            background-color: #9379a5;
+            line-height: 100px;
+            font-size: 30px;
+        }
+        .box{
+            /*width: 100%;*/
+            height: 50px;
+
+            margin: 10px 15px;
+        }
+        .box input{
+            width: 400px;
+            height: 100%;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #000;
+        }
+        .box .tijiao{
+            width: 100px;
+            height: 100%;
+            background-color: #0085D0;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            float: left;
+        }
+        .neirongbox{
+            flex-grow: 1;
+            background-color: red;
+        }
+        .plan,.done{
+            display: block;
+            width: 50%;
+            /*height: 100%;*/
+            float: left;
+        }
+        .plan{
+            background-color: #0085D0;
+        }
+        .done{
+            background-color: #1e854a;
+            float: right;
+        }
+        ul>li{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            color: #fff;
+            border-bottom: 1px dashed #fff;
+        }
+        ul>li time{
+            float: right;
+        }
+        time{
+            background-color: #969696;
+        }
+    </style>
+</head>
+<body>
+<div class="biaoti">待办事项</div>
+<div class="box">
+    <input type="text" class="text">
+    <div class="tijiao">提交</div>
+</div>
+<div class="neirongbox">
+    <ul class="plan">
+        <li><input type="checkbox"><i contenteditable="true">123123</i><time>2017/5/3</time></li>
+    </ul>
+    <ul class="done">
+        <li><input type="checkbox"><i contenteditable="true">123123fedf</i><time>2017/5/3</time></li>
+    </ul>
+</div>
+
+<script>
+    var text=document.querySelector(".text");
+    var tijiao=document.querySelector(".tijiao");
+    var plan=document.querySelector(".plan");
+    var done=document.querySelector(".done");
+    function getData(){
+        var data=localStorage.todo?JSON.parse(localStorage.todo):[];
+        return data;
+    }
+    function saveData(data){
+        if(data==undefined){
+            return;
+        }
+        localStorage.todo=JSON.stringify(data);
+    }
+    function rewrite(){
+        var data=getData();
+        var str1="",str2="";
+        data.forEach(function(v,i){
+            if(!v.done){
+                str1+=`<li id="${i}"><input type="checkbox" onfocus="changestate(this)"><i contenteditable="true" onblur="changecontent(this)">${v.content}</i><time>${time(v.time)}</time></li>`;
+            }else{
+                str2+=`<li id="${i}"><input type="checkbox" onfocus="del(this)"><i contenteditable="true" onblur="changecontent(this)">${v.content}</i><time>${time(v.time)}</time></li>`;
+            }
+        });
+        plan.innerHTML=str1;
+        done.innerHTML=str2;
+    }
+    rewrite();
+    tijiao.onclick=function(){
+        if(text.value==""){
+            return;
+        }
+        var val=text.value;
+
+        text.value="";
+        var data=getData();
+        var date=new Date();
+        var time=date.getTime();
+        data.push({content:val,time,done:false});
+        console.log(data)
+        saveData(data);
+        rewrite();
+    }
+    function time(t){
+        var date=new Date();
+        date.setTime(t);
+        return date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate()+" "+(date.getHours()<10?"0"+date.getHours():date.getHours())
+                +":"+(date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes())+":"+(date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds());
+    }
+    function changestate(ele){
+        var id=ele.parentNode.id;
+        var data=getData();
+        data[id].done=true;
+        saveData(data);
+        rewrite();
+    }
+    function del(ele) {
+        var id=ele.parentNode.id;
+        var data=getData();
+        data.splice(id,1);
+        saveData(data);
+        rewrite();
+    }
+    function changecontent(ele) {
+        var id=ele.parentNode.id;
+        var val=ele.innerHTML;
+        var data=getData();
+        data[id].content=val;
+        saveData(data);
+        rewrite();
+    }
+</script>
+</body>
+</html>

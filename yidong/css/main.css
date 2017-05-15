@@ -1,0 +1,1047 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #666;
+}
+img{
+    vertical-align: middle;
+}
+body{
+    font-family: 微软雅黑, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+}
+.clear:after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    clear: both;
+}
+.container{
+    margin: 0 auto;
+    width: 1200px;
+}
+.topnav{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    background: #f6f6f6;
+    border-bottom: 1px solid #ececec;
+    position: relative;
+    z-index: 2;
+}
+.topbarcon{
+    width: 1200px;
+    margin: 0 auto;
+}
+.topnavl a{
+    display: inline-block;
+    text-decoration: none;
+    color: #888;
+    border-right: 1px solid #ececec;
+    padding: 0 10px;
+}
+.youkuai1,.youkuai2{
+    display: inline-block;
+    position: relative;
+}
+.topnavr .youkuai1 .login{
+    padding: 0 10px 0 25px;
+    background: url(../img/1.png) 10px center no-repeat;
+    color: #e40077;
+    cursor: pointer;
+}
+.topnavr .youkuai1 .login:hover{
+    background-image: url(../img/6.png);
+    color: #25b2fe;
+    background-color: #fff;
+}
+.topnavr a{
+    display: inline-block;
+    text-decoration: none;
+    color: #888;
+}
+.topnavr .youkuai2 a{
+    padding: 0 10px 0 25px;
+    background: url(../img/2.png) 10px center no-repeat;
+}
+.topnavr span{
+    font-size: 10px;
+    color: #ddd;
+}
+.topnav a:hover{
+    color: #25b2fe;
+    text-decoration: none;
+}
+.xiala,.didian-2,.didian-3{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    float: left;
+    min-width: 160px;
+    font-size: 14px;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    margin: 0;
+    padding: 18px 0 12px 0;
+    display: none;
+}
+.xiala a{
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #e4e4e4;
+    margin: 5px 15px;
+    color: #25b2fe;
+    padding: 0 5px;
+}
+.youkuai2 a:hover{
+    background-image: url(../img/7.png);
+    background-color: #fff;
+}
+.navtop{
+    padding: 15px 50px 15px 0;
+}
+.navbar{
+    border-radius: 0;
+    background: #e4e4e4;
+    padding: 0;
+    margin-bottom: 0;
+    min-height: 40px;
+    position: relative;
+    border: 0;
+}
+.navtop-1{
+    width: 50%;
+    float: left;
+}
+.navtop-2{
+    position: relative;
+    width: 50%;
+    float: left;
+}
+.logo{
+    padding-top: 10px;
+    float: left;
+}
+.didian{
+    float: left;
+    margin: 20px 0 0 20px;
+    position: relative;
+}
+.didian-1{
+    cursor: pointer;
+    font-size: 14px;
+    height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 15px 0 0;
+    background: transparent url(../img/6.gif) no-repeat right 9px;
+}
+.didian-2,.didian-3{
+    width: 540px;
+    padding: 10px 20px;
+    z-index: 1005;
+    display: block;
+    box-sizing: border-box;
+    display: none;
+}
+.didian-2 li{
+    text-align: left;
+    font-size: 12px;
+    padding: 7px 0;
+}
+.didian-2 li:first-child a{
+    display: block;
+    padding: 3px 20px;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    float: left;
+    clear: none;
+    color: #0085D0;
+    font-weight: bold;
+}
+.didian-2 li:nth-child(2) dl dd{
+    float: left;
+    padding: 0 10px;
+}
+.didian-3 li{
+    text-align: left;
+    font-size: 12px;
+    padding: 7px 0;
+    text-align: left;
+}
+.didian-3 li dl dt{
+    float: left;
+    padding: 0 0 0 10px;
+    font-weight: normal;
+    width: 50px;
+    height: 12px;
+    border-left: 3px solid #e50075;
+}
+.didian-3 li dl dt span{
+    margin-top: -2px;
+    display: block;
+}
+.didian-3 li dl dd{
+    float: left;
+    padding: 0;
+    width: 50px;
+}
+.input{
+    display: table;
+    border-collapse: separate;
+    border: 2px solid #dfdfdf;
+    width: 100%;
+    position: static;
+    box-sizing: border-box;
+}
+.input .search{
+    border:0;
+    height: 32px;
+    padding: 3px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    box-sizing: border-box;
+}
+.input span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 36px;
+    display: block;
+    width: 85px;
+}
+.input span input{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 0;
+    padding-left: 30px;
+    background: #25b2fe url(../img/3.png) no-repeat 15px center;
+    color: #fff;
+    width: 85px;
+    border-radius: 3px;
+    margin-left: 0;
+    height: 36px;
+    font-family: inherit;
+}
+.menu{
+    padding-top: 5px;
+}
+.menu a{
+    padding: 0 20px 0 0;
+}
+.menu a:nth-child(1),.menu a:nth-child(3),.menu a:nth-child(6){
+    color: #e40077;
+}
+.menu a:hover{
+    color: #0085d0!important;
+    text-decoration: underline;
+}
+.navbarall ul li{
+    float: left;
+    border-right: 1px solid #fff;
+    height: 40px;
+    box-sizing: border-box;
+}
+.navbarall ul .shouye{
+    width: 160px;
+    color: #0085d0;
+    border-top: 2px solid #0085d0;
+}
+.navbarall ul .shouye a{
+    display: block;
+    color: #0085d0;
+    font-weight: bold;
+}
+.navbarall ul li a{
+    display: block;
+    text-align: center;
+    padding: 0;
+    line-height: 40px;
+    font-size: 16px;
+}
+.navxiala{
+    position: absolute;
+    top: 100%;
+    float: left;
+    font-size: 14px;
+    list-style: none;
+    background-color: #fff;
+    left: 0;
+    box-shadow: 0px 6px 12px -4px rgba(0, 0, 0, 0.176);
+    padding: 0;
+    z-index: 1000;
+    width: 1200px;
+    display: none;
+}
+.navbarall ul li .navxiala li a{
+    display: block;
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    padding: 0;
+    line-height: 40px;
+}
+.navxiala li{
+    float: left;
+    width: 14%;
+    border-right: 1px solid #fff;
+    height: 40px;
+}
+.navbarall ul li .navxiala li a:hover{
+    color: #0085d0;
+}
+footer{
+    width: 100%;
+    margin: 0 auto;
+    font-size: 12px;
+}
+.footbox{
+    float: left;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+.foot-1,.foot-2{
+    line-height: 33px;
+}
+.foot-3{
+    line-height: 18px;
+    padding: 4px 0 0 0;
+}
+.foot-4,.foot-5{
+    padding-top: 10px;
+    line-height: 33px;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #007bc7;
+}
+.bianhao{
+    box-sizing: border-box;
+    padding: 0 0 0 20px;
+    text-align: left;
+    position: relative;
+}
+.bianhao p{
+    background: url("../img/7.gif") no-repeat;
+    background-size: 21px 25px;
+    line-height: 25px;
+    margin: 12px 0 0 0;
+    padding: 0 0 0 25px;
+    width: auto;
+}
+.main{
+    background: #fff;
+    position: relative;
+}
+.mokuai-1{
+    float: left;
+    width: 160px;
+    height: 350px;
+    box-sizing: border-box;
+    padding: 8px 10px 10px 10px;
+    border: 1px solid #b8d9e9;
+    margin: 5px 10px 0 0;
+    background: #fff;
+}
+.mokuai-1 h1{
+    font-size: 12px;
+    color: #333;
+    font-weight: normal;
+    text-align: center;
+    padding: 0 0 3px 0;
+    margin: 0;
+    line-height: 180%;
+}
+.mokuai-1 h1 a{
+    color: #333;
+}
+.mokuai-1 h1 a:hover{
+    color: #0085d0;
+    text-decoration: none;
+}
+.mokuai-1 ul{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.mokuai-1 ul li{
+    height: 52px;
+    line-height: 52px;
+    border-top: 1px solid #e9e9e9;
+    width: 100%;
+}
+.mokuai-1 ul li img{
+    float: left;
+    padding: 15px 10px 0 25px;
+    box-sizing: border-box;
+}
+.mokuai-1 ul li a{
+    float: left;
+    font-size: 15px;
+    color: #333;
+}
+.mokuai-1 ul li a:hover{
+    color: #0085d0;
+}
+.banner{
+    float: left;
+    height: 350px;
+    width: 740px;
+    overflow: hidden;
+    position: relative;
+    margin: 5px 0 0 0;
+    z-index: 1;
+}
+.bannersbox{
+}
+.bannerimgbox{
+    /*width: 6660px;*/
+    /*overflow: hidden;*/
+    /*transition: all 1s;*/
+    /*margin-left: -740px;*/
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+.bannerimg{
+    float: left;
+    width: 740px;
+    height: 350px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.bannerbox{
+    height: 100%;
+}
+.jtl{
+    background: url("../img/5.png") no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 70px;
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    top: 140px;
+    width: 30px;
+    z-index: 2;
+}
+.jtr{
+    background: url("../img/5.png") no-repeat right 0;
+    cursor: pointer;
+    display: block;
+    height: 70px;
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    top: 140px;
+    width: 30px;
+    z-index: 2;
+}
+.jtl:hover,.jtr:hover{
+    opacity:0.6;
+}
+.dian{
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+    z-index: 2;
+}
+.dian li {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    opacity: 0.85;
+    background-color: #ccc;
+}
+.active{
+    background-color: #E40077!important;
+}
+.mokuai-2{
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    float: right;
+    height: 349px;
+    width: 278px;
+    margin: 5px 0 0 0;
+}
+.mokuai-2-1{
+    width: 100%;
+    padding: 5px 0 0 0;
+}
+.mokuai-2-1 ul{
+    width:100%;
+    margin-bottom: 10px;
+}
+.mokuai-2-1 ul li{
+    float: left;
+    height: 78px;
+    width: 33%;
+    position: relative;
+    z-index: 1;
+}
+.mokuai-2-1 ul li a{
+    color: #4e4e4e;
+    display: block;
+    width: 80px;
+    height: 77px;
+    left: 50%;
+    margin-left: -40px;
+    padding: 55px 0 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 0px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.mokuai-2-1 ul li:nth-child(1) a{
+    background: url(../img/8.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(1) a:hover{
+    background: url(../img/9.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(2) a{
+    background: url(../img/10.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(2) a:hover{
+    background: url(../img/11.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(3) a{
+    background: url(../img/9.png) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(3) a:hover{
+    background: url(../img/10.png) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(4) a{
+    background: url(../img/12.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(4) a:hover{
+    background: url(../img/13.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(5) a{
+    background: url(../img/14.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(5) a:hover{
+    background: url(../img/15.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(6) a{
+    background: url(../img/16.gif) no-repeat center 15px;
+}
+.mokuai-2-1 ul li:nth-child(6) a:hover{
+    background: url(../img/17.gif) no-repeat center 15px;
+}
+.mokuai-2-2{
+    padding: 20px 10px 10px 10px;
+}
+.mokuai-2-3{
+    font: bold 14px/36px "微软雅黑";
+    color: #333;
+    padding: 0 15px;
+    width: 98%;
+    height: 20px;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+.mokuai-2-4{
+    border: 1px solid #dadada;
+    border-radius: 3px;
+    height: 36px;
+    width: 235px;
+    padding: 3px 5px;
+    margin: 8px 0 0 12px;
+    position: relative;
+    box-sizing: border-box;
+}
+.mokuai-2-5{
+    width: 259px;
+    text-align: center;
+    padding: 10px 0;
+    height: 56px;
+    box-sizing: border-box;
+}
+.mokuai-2-5 a{
+    font-size: 12px;
+    display: inline-block;
+    border: 1px solid #dadada;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    color: #666;
+    width: 44px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    /*margin: 0 2px;*/
+    box-sizing: border-box;
+}
+.mokuai-2-5 a:hover{
+    background: #e40077;
+    border: 1px solid #e40077;
+    color: #fff;
+}
+.mokuai-2-6{
+    padding: 0 0 0 85px;
+    position: relative;
+}
+.mokuai-2-6 input{
+    background: #33acfb;
+    color: #fff;
+    border-radius: 3px;
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    /*box-sizing: border-box;*/
+    border: 0;
+    font-family: inherit;
+}
+.mokuai-2-3 a:hover{
+    text-decoration: underline;
+}
+.mokuai-2-3 .you{
+    float: right;
+    color: #ff0000;
+    font-size: 12px;
+}
+.mokuai-2-4 .in{
+    border: 0;
+    height: 28px;
+    line-height: 28px;
+    width: 220px;
+    color: rgb(51, 51, 51);
+    float: left;
+    position: absolute;
+    left: 5px;
+}
+.mokuai-2-4 .in:focus{
+    outline: none;
+}
+.activebg{
+    background: #e40077;
+    border: 1px solid #e40077!important;
+    color: #fff!important;
+    text-decoration: none;
+}
+.mokuai3{
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+    border: 1px solid #dfdfdf;
+}
+.mokuai3-top{
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #dfdfdf;
+    padding: 0 25px;
+    box-sizing: border-box;
+}
+.mokuai3-top span{
+    float: left;
+    color: #0085d0;
+    font-size: 15px;
+    font-weight: bold;
+}
+.mokuai3-top a{
+    float: right;
+}
+.mokuai3-1{
+    width: 25%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    height: 377px;
+}
+.mokuai3-2{
+    width: 25%;
+    float: left;
+    height: 377px;
+    border-left: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    position: relative;
+}
+.mokuai3-2top{
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    width: 100%;
+    height: 188px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.mokuai3-2di{
+    position: relative;
+    background: #efefef;
+    height: 189px;
+    width: 100%;
+}
+.mokuai3-2top a{
+    display: block;
+}
+.mokuai3-2top a:nth-child(2){
+    width: 100%;
+    height: 136px;
+}
+.mokuai3-2top a:nth-child(1) h1{
+    font: bold 18px/25px "微软雅黑";
+    color: #333;
+    padding: 6px 0 0 20px;
+    margin: 0;
+    font-weight: normal;
+}
+.mokuai3-2top a:nth-child(1) h2{
+    font: normal 14px/20px "微软雅黑";
+    color: #666;
+    padding: 0 0 0 20px;
+    margin: 0;
+}
+.mokuai3-2top a:nth-child(2) img,.mokuai3-2di a:nth-child(2) img{
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    display: block;
+    transition: all 0.5s;
+}
+.mokuai3-2top:hover img,.mokuai3-2di:hover img{
+    right: 10px !important;
+}
+.mokuai3-2di a:nth-child(2){
+    display: block;
+    width: 100%;
+    height: 136px;
+}
+.mokuai3-2di a:nth-child(1) h1{
+    font: normal 18px/25px "微软雅黑";
+    color: #E40077;
+    padding: 8px 0 0 20px;
+    margin: 0px;
+}
+.mokuai3-2di a:nth-child(1) h2{
+    font: normal 14px/20px "微软雅黑";
+    color: #8e8e8e;
+    padding: 0 0 0 20px;
+    margin: 0px;
+}
+.mokuai3-1 a,.mokuai3-2 a{
+    display: block;
+}
+.mokuai3-1 a h2,.mokuai3-2 a h2{
+    font: normal 14px/20px "微软雅黑";
+    color: #666;
+    padding: 20px 0 0 20px;
+    box-sizing: border-box;
+}
+.mokuai3-1 a h3,.mokuai3-2 a h3{
+    font: normal 12px/20px "微软雅黑";
+    color: #0085d0;
+    padding: 0 0 0 20px;
+    margin: 0;
+}
+.price a{
+    display: block;
+    width: 100%;
+    height: 38px;
+}
+.price a p{
+    float: left;
+    font: normal 20px/150% "微软雅黑";
+    color: #ef33a2;
+    padding: 10px 0 0 20px;
+}
+.phone img{
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    transition: all 0.5s;
+}
+.phone:hover img{
+    right: 10px;
+}
+.dibumenu{
+    width: 100%;
+    margin: 10px 0 0 0;
+    border: 1px solid #dfdfdf;
+    padding: 20px 0 20px 35px;
+    box-sizing: border-box;
+    float: left;
+}
+.dibumenu div{
+    width: 20%;
+    float: left;
+}
+.dibumenu-1 h2{
+    font: bold 15px/180% "微软雅黑";
+    color: #666;
+    margin: 0;
+    height: 27px;
+}
+.menuxq a{
+    display: block;
+    font-size: 15px;
+    line-height: 180%;
+}
+.dibumenu .menuxq{
+    width: 100%;
+}
+.gonggao{
+    float: left;
+    font-size: 15px;
+    height: 38px;
+    line-height: 38px;
+    margin: 10px 0 0 0;
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    overflow: hidden;
+}
+.btn{
+    cursor: pointer;
+    float: right;
+    padding: 0 20px 0 0;
+}
+.btnl{
+    color: #3580ba;
+    text-decoration: none;
+    width: 22px;
+    font: bold 15px/25px "宋体";
+    height: 38px;
+    line-height: 38px;
+    float: left;
+}
+.btnr{
+    color: #3580ba;
+    text-decoration: none;
+    width: 22px;
+    font: bold 15px/25px "宋体";
+    height: 38px;
+    line-height: 38px;
+    float: left;
+}
+.gonggao span{
+    background: url(../img/18.gif) no-repeat 20px center;
+    color: #666;
+    float: left;
+    padding: 0 0 0 50px;
+}
+.gonggao ul{
+    float: left;
+    width: 80%;
+    margin: 0;
+}
+.gonggao ul li{
+    width: 50%;
+    background: url("../img/19.gif") no-repeat scroll 5px -55px;
+    float: left;
+    padding: 0 10px 0 20px;
+    display: block;
+    box-sizing: border-box;
+}
+.gonggao ul li a{
+    color: #0085d0;
+    width: 70%;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.gonggao ul li span{
+    color: #CCC;
+    float: left;
+    background: none;
+    padding: 0 0 0 5px;
+    width: 30%;
+    box-sizing: border-box;
+}
+.dibumenu a:hover{
+    color: #007bc7;
+    text-decoration: underline;
+}
+.mokuai2{
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+    padding: 10px 15px;
+    height: 180px;
+    background: #dfdfdf;
+    position: relative;
+    box-sizing: border-box;
+}
+.mokuai2-3{
+    width: 1170px;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+}
+.gundong{
+    height: 160px;
+    width: 4720px;
+    position: absolute;
+    left: 0;
+    /*transition: all 1s;*/
+}
+.gundongimg{
+    width: 285px;
+    height: 160px;
+    margin: 0 10px 0 0;
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+}
+.gundongtu{
+    display: block;
+    height: 109px;
+    width: 100%;
+}
+.fundongti h1{
+    font: bold 18px/25px "微软雅黑";
+    color: #333;
+    padding: 6px 0 0 20px;
+    margin: 0;
+}
+.fundongti h2{
+    font: normal 14px/20px "微软雅黑";
+    color: #666;
+    padding: 0 0 0 20px;
+    margin: 0;
+}
+.gundongtu img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.mokuai2l{
+    position: absolute;
+    left: 0;
+    top: 70px;
+    height: 35px;
+    width: 28px;
+    background: url(../img/20.gif) no-repeat left top;
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 2;
+}
+.mokuai2r{
+    position: absolute;
+    right: 0;
+    top: 70px;
+    height: 35px;
+    width: 28px;
+    background: url(../img/20.gif) no-repeat right top;
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 2;
+}
+.mokuai3-top a:hover{
+    text-decoration: underline;
+    color: #0085d0;
+}
+.bannerimgbox div{
+
+}
+
+
+@keyframes leftOut{
+    0%{
+        left:0;
+    }
+    100%{
+        left: -740px;
+    }
+}
+.leftOut{
+    animation: leftOut 1s ease-in;
+}
+@keyframes leftIn{
+    0%{
+        left:740px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+.leftIn{
+    animation: leftIn 1s ease-in;
+}
+@keyframes rightIn{
+    0%{
+        left:-740px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+.rightIn{
+    animation: rightIn 1s ease-in;
+}
+@keyframes rightOut{
+    0%{
+        left:0px;
+    }
+    100%{
+        left: 740px;
+    }
+}
+.rightOut{
+    animation: rightOut 1s ease-in;
+}
+.gudingr{
+    z-index: 900;
+    width: 140px;
+    height: 142px;
+    position: fixed;
+    right: -102px;
+    bottom: 20px;
+}
+.gudingr img:first-child{
+    z-index: 9999;
+    position: absolute;
+    left: 0px;
+}
+.gudingr .gudingr-1{
+    cursor: pointer;
+    height: 22px;
+    left: -20px;
+    position: absolute;
+    top: 35px;
+    width: 86px;
+    z-index: 0;
+    transition: all 0.5s;
+}
+/*.gudingr-1:hover{*/
+    /*left:-84px;*/
+/*}*/

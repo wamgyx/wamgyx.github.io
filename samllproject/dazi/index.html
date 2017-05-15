@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*div{*/
+        /*width: 100px;*/
+        /*height: 100px;*/
+        /*background-color: red;*/
+        /*}*/
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 微软雅黑;
+            font-weight: 500;
+        }
+
+        * {
+            user-select: none;
+        }
+
+        .bigbox{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-image: url(img/beijing.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .zhezhao{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .scene {
+            width: 1000px;
+            height: 100%;
+            /*background: #ccc;*/
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .main {
+            width: 800px;
+            height: 100%;
+            /*background: #d4d4d4;*/
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .control {
+            width: 200px;
+            height: 100%;
+            /*background-color: #e5004f;*/
+            float: left;
+        }
+
+        .box {
+            width: 100%;
+            height: 57px;
+            border-radius: 10px;
+            margin: 10px auto;
+            background-color: #fff;
+            background-image: url(img/1.png);
+            background-repeat: no-repeat;
+            background-position: -9px -116px;
+            background-size: 227px 209px;
+            padding-top: 8px;
+        }
+
+
+        .box .name {
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .box .scor {
+            width: 80%;
+            height: 30px;
+            border-radius: 5px;
+            line-height: 30px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .state, .life {
+            text-align: center;
+        }
+
+        .letter {
+            width: 80px;
+            height: 80px;
+            /*text-align: center;*/
+            /*font-size: 30px;*/
+            /*border: 1px solid #000;*/
+            /*line-height: 80px;*/
+            position: absolute;
+        }
+
+        .btn {
+            width: 80%;
+            height: 30px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            background-color: #cd375e;
+            cursor: pointer;
+            margin: 10px auto;
+        }
+        .pao{
+            background-image: url(img/pao.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            transition: bottom 2s linear;
+            opacity: 0.6;
+        }
+        .btn{
+            width: 80%;
+            height: 46px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            /* background-color: #cd375e; */
+            cursor: pointer;
+            margin: 10px auto;
+            background-image: url(img/start.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #fff;
+            font-weight: 800;
+            line-height: 46px;
+            font-family: 微软雅黑;
+            background-color: inherit;
+        }
+         .btn:hover{
+            font-size: 20px;
+        }
+        .over{
+            width: 600px;
+            height: 400px;
+            /*background-color: red;*/
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            background-image: url(img/over.jpg);
+            background-size: cover;
+            background-position: 0 12px;
+            background-repeat: no-repeat;
+            display: none;
+        }
+        .over h3{
+            font-size: 50px;
+            line-height: 126px;
+            text-align: center;
+        }
+        .over h5,.over h4{
+            text-align: center;
+            font-size: 20px;
+            color: #7381ee;
+            cursor: pointer;
+        }
+        .over h5:hover,.over h4:hover{
+            text-decoration: underline;
+        }
+        /*.over h4:hover{*/
+            /*text-decoration: underline;*/
+        /*}*/
+        .over h6{
+            text-align: center;
+            font-size: 15px;
+        }
+        .box p{
+            display: block;
+            width: 70%;
+            height: 20px;
+            margin: 1px auto;
+            float: right;
+            /*background-color: red;*/
+            font-size: 13px;
+        }
+        .paiming1{
+            width: auto;
+            height: 26px;
+            margin-top: 7px;
+            margin-left: 14px;
+        }
+    </style>
+</head>
+<body>
+<!--<div></div>-->
+<!--<div contenteditable="true"></div>-->
+<!--要想能编辑加 contenteditable属性 -->
+<div class="bigbox">
+    <div class="zhezhao"></div>
+    <div class="scene">
+        <div class="main"></div>
+            <div class="control">
+            <div class="box" style="height: 150px">
+                <div class="name">得分</div>
+                <div class="scor">0</div>
+                <div class="paiming1">第一名:<p class="paiming"></p></div>
+                <div class="paiming1">第二名:<p class="paiming"></p></div>
+                <div class="paiming1">第三名:<p class="paiming"></p></div>
+            </div>
+            <div class="box">
+                <div class="name">关卡</div>
+                <div class="state">1</div>
+            </div>
+            <div class="box">
+                <div class="name">生命值</div>
+                <div class="life">5</div>
+            </div>
+            <div class="btn start">开始</div>
+            <div class="btn pause">暂停</div>
+        </div>
+    </div>
+    <div class="over">
+        <h3>Game Over!</h3>
+        <h6></h6>
+        <h5>继续游戏</h5>
+        <h4>退出游戏</h4>
+    </div>
+</div>
+
+<script>
+    //onkeydown
+    //    window.onkeydown=function(){
+    //        console.log(1);
+    //    };
+    //    document.onkeydown=function(){
+    //        console.log(2);
+    //    };
+    //    document.body.onkrydown=function(){
+    //        console.log(3);
+    //    };
+    //    var div=document.querySelector("div");
+    //    div.onkeydown=function(){
+    //        console.log(2);
+    //    }
+
+    var mainbox = document.querySelector(".main");
+    var scor = document.querySelector(".scor");
+    var life = document.querySelector(".life");
+    var state = document.querySelector(".state");
+    var paiming = document.querySelectorAll(".paiming");
+    //    var num=6;
+    //    var obj={};
+    //    function creatLetter(){
+    //        var div=document.createElement("div");
+    //        div.className="letter";
+    //        do{
+    //            var rnum=Math.floor(Math.random()*26+65);
+    //            var zimu=String.fromCharCode(rnum);
+    //        }while(obj[zimu]);
+    //
+    //        div.innerHTML=zimu;
+    //
+    //
+    //        do{
+    //            var rl=Math.random()*720;
+    //        }while(check(rl));
+    //
+    //        var rt=-Math.random()*100;
+    //        div.style.left=rl+"px";
+    //        div.style.top=rt+"px";
+    //
+    //        obj[zimu]={left:rl,top:rt,el:div};
+    //
+    //        mainbox.appendChild(div);
+    //    }
+    //    function play(){
+    //        for(let i=0;i<num;i++){
+    //            creatLetter();
+    //        }
+    //    }
+    //    function check(left){
+    //        for(var i in obj){
+    //            if(obj[i].left-80<left&&left<obj[i].left+80){
+    //                return true;
+    //            }
+    //        }
+    //        return;
+    //    }
+    //    play();
+    //    setInterval(function(){
+    //        for(let i in obj){
+    //            var t=obj[i].top;
+    //            t+=5;
+    //            obj[i].top=t;
+    //            obj[i].el.style.top=t+"px";
+    //        }
+    //    },50);
+    //    document.onkeydown=function(e){
+    //        var keycode=e.keyCode;
+    //        var l=String.fromCharCode(keycode);
+    //        if(obj[l]){
+    //            mainbox.removeChild(obj[l].el);
+    //            delete obj[l];
+    //            creatLetter();
+    //        }
+    //    }
+
+    class Game {
+        constructor(main, scor, life, state,over,start,paiming) {
+            this.main = main;
+            this.num = 3;
+            this.obj = {};
+            this.over=over;
+            this.starts=start;
+
+            this.startcontrol=true;
+
+//            分数
+            this.fenshu = 0;
+            this.scor = scor;
+            this.life = life;
+            this.guanqia = state;
+            this.shengming = 5;
+            this.t = 0;
+            this.sta = 1;
+            this.speed = 1;
+            this.paiming=paiming;
+        }
+
+        createLetter() {
+            var div = document.createElement("div");
+            div.className = "letter";
+            do {
+                let rn = Math.floor(Math.random() * 26 + 65);
+                var le = String.fromCharCode(rn);
+            } while (this.obj[le]);
+//            div.innerHTML = le;
+            div.style.backgroundImage=`url(img/${le}.png)`;
+            do {
+                var rl = Math.random() * 720;
+            } while (this.check(rl));
+            var rt = -Math.random() * 100;
+            div.style.left = rl + "px";
+            div.style.top = rt + "px";
+            this.obj[le] = {left: rl, top: rt, el: div};
+            this.main.appendChild(div);
+        }
+
+        check(left) {
+            for (var i in this.obj) {
+                if (this.obj[i].left - 80 < left && left < this.obj[i].left + 80) {
+                    return true;
+                }
+            }
+            return;
+        }
+
+        start() {
+            this.startcontrol=false;
+            for (let i = 0; i < this.num; i++) {
+                this.createLetter();
+            }
+            this.move();
+            this.keydown();
+            this.bestscor=localStorage.bestscor?JSON.parse(localStorage.bestscor):[];
+            for(let i=0;i<this.bestscor.length;i++){
+                this.paiming[i].innerHTML=this.bestscor[i].name+" 得分 :"+this.bestscor[i].scor;
+            }
+        }
+
+        move() {
+            this.t = setInterval(function () {
+                    for (let i in this.obj) {
+                        var t = this.obj[i].top;
+                        t += this.speed;
+                        this.obj[i].top = t;
+                        this.obj[i].el.style.top = t + "px";
+
+//                    字母超出屏幕后重新产生
+                        if (this.obj[i].top >= document.documentElement.clientHeight) {
+                            this.main.removeChild(this.obj[i].el);
+                            delete this.obj[i];
+                            this.createLetter();
+                            this.shengming--;
+
+                            this.life.innerHTML = this.shengming;
+
+                            console.log(this.shengming)
+                            if (this.shengming == 0) {
+                                this.life.innerHTML = this.shengming;
+                                this.gameover();
+//
+                                return;
+                            }
+                        }
+                    }
+            }.bind(this), 10);
+        }
+
+        keydown() {
+            document.onkeydown = function (e) {
+                var keycode = e.keyCode;
+                var le = String.fromCharCode(keycode);
+                if (this.obj[le]) {
+                    this.main.removeChild(this.obj[le].el);
+                    delete this.obj[le];
+                    this.createLetter();
+                    this.fenshu++;
+                    this.scor.innerHTML = `${this.fenshu}`;
+
+                    if (this.fenshu % 10 == 0) {
+                        this.upstate();
+                    }
+                }
+            }.bind(this)
+        }
+
+        upstate() {
+            this.sta++;
+            this.guanqia.innerHTML = this.sta;
+            if (this.sta <= 4) {
+                this.createLetter();
+            } else {
+                this.speed++;
+            }
+        }
+        pause(){
+            clearInterval(this.t);
+            document.onkeydown=null;
+        }
+        play(){
+            this.move();
+            this.keydown();
+        }
+
+        gameover() {
+
+            clearInterval(this.t);
+            if(this.bestscor.length<3||(this.bestscor.length>=3&&this.fenshu>parseInt(this.bestscor[2].scor))){
+                let name=prompt("请输入姓名");
+                console.log(this.scor)
+                this.bestscor.push({name,scor:`${this.fenshu}`});
+                this.bestscor.sort(function(a,b){
+                    if(parseInt(a.scor)>parseInt(b.scor)){
+                        return -1;
+                    }else{
+                        return 1;
+                    }
+                });
+                if(this.bestscor.length>3){
+                    this.bestscor.pop();
+                }
+                localStorage.bestscor=JSON.stringify(this.bestscor);
+            }
+            for(let i=0;i<this.bestscor.length;i++){
+                this.paiming[i].innerHTML=this.bestscor[i].name+" 得分 ："+this.bestscor[i].scor;
+            }
+
+//            this.move = null;
+//            setTimeout(function () {
+//                confirm("GameOver！")
+//            }, 0.5);
+//            confirm("GameOver！");
+            this.over.style.display="block";
+            this.over.children[1].innerHTML=`所得分数：${this.fenshu} 分`;
+            this.starts.style.display="none";
+
+            this.startcontrol=true;
+
+            this.main.innerHTML="";
+            this.obj={};
+            this.speed=1;
+            this.scor.innerHTML="0";
+            this.guanqia.innerHTML="1";
+            this.life.innerHTML="5";
+            this.shengming=5;
+            this.fenshu=0;
+            this.sta=1;
+        }
+    }
+//
+    const over=document.querySelector(".over");
+    var start = document.querySelector(".start");
+    var pause = document.querySelector(".pause");
+    var game = new Game(mainbox, scor, life, state,over,start,paiming);
+    var best=localStorage.bestscor?JSON.parse(localStorage.bestscor):[];
+    for(let i=0;i<best.length;i++){
+        paiming[i].innerHTML=best[i].name+" 得分 :"+best[i].scor;
+    }
+
+    start.onclick = function () {
+        if (game.startcontrol) {
+            game.start();
+        }
+    }
+    var flag=true;
+    pause.onclick=function(){
+        if(!game.startcontrol){
+            if(flag){
+                pause.innerHTML="继续";
+                game.pause();
+            }else{
+                pause.innerHTML="暂停";
+                game.play();
+            }
+            flag=!flag;
+        }
+    }
+
+
+    const zhezhao=document.querySelector(".zhezhao");
+    let botto=5;
+    createpao();
+    createpao();
+    createpao();
+    createpao();
+    const pao=document.querySelectorAll(".pao");
+//    pao.forEach(function(pre,index) {
+//        pre.style.bottom = document.documentElement.clientHeight - (pre.offsetTop - botto) + "px"
+//        if (pre.offsetTop < -50) {
+//            zhezhao.removeChild(pre);
+//        }
+//    })
+    for(let i=0;i<pao.length;i++){
+        pao[i].style.bottom=document.documentElement.clientHeight-(pao[i].offsetTop-botto)+"px"
+        if(pao[i].offsetTop<-50){
+            zhezhao.removeChild(pao[i]);
+        }
+    }
+    setInterval(function(){
+        createpao();
+        const pao=document.querySelectorAll(".pao");
+//        pao.forEach(function(pre,index){
+//            pre.style.bottom=document.documentElement.clientHeight-(pre.offsetTop-botto)+"px"
+//            if(pre.offsetTop<-50){
+//                zhezhao.removeChild(pre);
+//            }
+//        });
+        for(let i=0;i<pao.length;i++){
+            pao[i].style.bottom=document.documentElement.clientHeight-(pao[i].offsetTop-botto)+"px"
+            if(pao[i].offsetTop<-50){
+                zhezhao.removeChild(pao[i]);
+            }
+        }
+    },2000);
+//    产生泡泡函数
+    function createpao() {
+        let pao=document.createElement("div");
+        pao.className="pao";
+        let wid=Math.floor(Math.random()*90+10);
+//        let hei=Math.floor(Math.random()*90+10);
+        let lef=Math.floor(Math.random()*1300);
+        pao.style.width=wid+"px";
+        pao.style.height=wid+"px";
+        pao.style.left=lef+"px";
+        zhezhao.appendChild(pao);
+    }
+    const guanbi=document.querySelector(".over h4");
+    const jixu=document.querySelector(".over h5");
+    guanbi.onclick=function(){
+        window.close();
+    }
+    jixu.onclick=function(){
+        jixu.parentNode.style.display="none";
+        start.style.display="block";
+    }
+
+</script>
+</body>
+</html>

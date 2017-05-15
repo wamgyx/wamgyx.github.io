@@ -1,10 +1,110 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="utf-8">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+        #menu { margin: 0;position: fixed; left: 0px; top: 0px; list-style-type: none; z-index: 70;}
+        #menu li { font-size: 14px;}
+        #menu a { color: #333; text-decoration: none;}
+        #menu .active a { color: #fff; background-color: #322d46;}
+    </style>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
-	<h1>hello</h1>
+
+<ul id="menu">
+    <li data-menuanchor="page1" class="active"><a href="#page1">我的简介</a></li>
+    <li data-menuanchor="page2"><a href="#page2">我的技能</a></li>
+    <li data-menuanchor="page3"><a href="#page3">我的作品</a></li>
+    <li data-menuanchor="page4"><a href="#page4">我的心情</a></li>
+</ul>
+
+<div id="dowebok">
+    <div class="section">
+        <div class="neirong">
+            <div class="pic"></div>
+            <div class="name">
+                <p>王云霞个人简历</p>
+                <i>时间是一切财富中最宝贵的财富</i>
+            </div>
+            <div class="jianjie1">
+
+            </div>
+            <div class="jianjie2"></div>
+            <div class="jianjie3 jianjie4"></div>
+            <div class="jianjie3"></div>
+        </div>
+    </div>
+    <div class="section section2">
+        <div class="neirong">
+            <h3>我的技能</h3>
+            <!--<p>请查看右边的圆圈</p>-->
+        </div>
+    </div>
+    <div class="section section3">
+        <div class="neirong">
+            <div class="neikuan">
+                <div class="zhanshi1">
+                    <p>电商网页</p>
+                    <div class="lianjie">
+                        <a href="fanke/index2.html">凡客</a>
+                        <a style="margin-left:50px" href="mi/index.html">小米</a>
+                        <a style="margin-left:100px" href="tianmall/index.html">天猫</a>
+                        <a style="margin-left:150px" href="apple/index.html">苹果</a>
+                        <a style="margin-left:40px;margin-top:40px" href="jingdong/index.html">京东商城</a>
+                        <a style="margin-left:90px" href="sofa/index.html">沙发网</a>
+                        <a style="margin-left:140px" href="yintai/index.html">银泰网</a>
+                        <a style="margin-left:190px" href="yidong/index.html">中国移动</a>
+                    </div>
+                </div>
+                <div class="zhanshi2">
+                    <p>我的小游戏</p>
+                    <div>
+                        <a href="snake/index.html">贪吃蛇</a>
+                        <a href="samllproject/dazi/index.html">打字小游戏</a>
+                        <a href="samllproject/shudu.html">数独小游戏</a>
+                    </div>
+                </div>
+                <div class="zhanshi3">
+                    <p>我的小练习</p>
+                    <div>
+                        <a href="samllproject/liuyan/index.html">留言板</a>
+                        <a href="samllproject/huaban/index.html">画板1</a>
+                        <a href="samllproject/lizidonghua/lizi.html">粒子动画</a>
+                        <a href="samllproject/fangda.html">放大效果</a>
+                        <a href="samllproject/daibanshixiang.html">待办事项</a>
+                        <a href="samllproject/bianjitable.html">可编辑表格</a>
+                        <a href="samllproject/lianpu/index.html">脸谱展示</a>
+                    </div>
+                </div>
+            </div>
+            <!--<h3>第三屏</h3>-->
+            <!--<p>圆圈还可以设置位置，颜色，加上 tip，点击可以控制</p>-->
+        </div>
+    </div>
+    <div class="section">
+        <h3>我的理想</h3>
+        <!--<p>这是最后一屏</p>-->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--<a href="http://www.dowebok.com/" style="display: none;">dowebok</a>-->
+<!--<a href="http://www.dowebok.com/77.html" style="display: none;">jQuery全屏滚动插件fullPage.js</a>-->
+
 </body>
 </html>

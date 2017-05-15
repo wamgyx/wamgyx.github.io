@@ -1,0 +1,21 @@
+h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dd,dt,form,input,textarea,pre,figure,body{
+	margin: 0;
+	padding 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	border: 0;
+}
+i,ul,del,b{
+	font-style: normal;
+	text-decoration: none;
+	font-weight: normal;
+	padding: 0;
+}
+body{
+	font-family: "Î¢ÈíÑÅºÚ","SF Pro SC","HanHei SC","SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
+	color: #333;
+}
