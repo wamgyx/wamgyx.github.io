@@ -14,6 +14,7 @@
     </style>
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery.fullPage.min.js"></script>
+    <script src="js/echarts.common.min.js"></script>
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -22,7 +23,7 @@
     <li data-menuanchor="page1" class="active"><a href="#page1">我的简介</a></li>
     <li data-menuanchor="page2"><a href="#page2">我的技能</a></li>
     <li data-menuanchor="page3"><a href="#page3">我的作品</a></li>
-    <li data-menuanchor="page4"><a href="#page4">我的心情</a></li>
+    <li data-menuanchor="page4"><a href="#page4">我的期望</a></li>
 </ul>
 
 <div id="dowebok">
@@ -34,18 +35,68 @@
                 <i>时间是一切财富中最宝贵的财富</i>
             </div>
             <div class="jianjie1">
-
+                <p>我叫：王云霞</p>
+                <p>我读的学校：山西大学</p>
+                <p>我的专业：软件工程</p>
+                <p>我的擅长：前端</p>
+                <p>我爱做的事：爬山，运动</p>
             </div>
             <div class="jianjie2"></div>
-            <div class="jianjie3 jianjie4"></div>
-            <div class="jianjie3"></div>
+            <div class="jianjie3 jianjie4">
+                <p style="margin: 10px">我相信</p>
+                <div style="color: #4b495d;">爱拼才会赢，这不仅仅是一句宣言，而是一种态度。一种乐观向上的态度。一种端正的态度。请相信，有什么样的态度，就有什么样的结果。有什么样的态度，就有什么样的人生与未来。端正的态度，毫不夸张的说。就是成功了一大半。我们自己的态度，决定了我们的人生。</div>
+            </div>
+            <div class="jianjie3">
+                <p style="margin: 10px">我认为</p>
+                <div style="color: #4b495d;">社会就像一个大舞台，既然你登上了，你就是这个舞台的主角。无论你演的是什么角色，自己尽力演好就够了。不要顾及台下有无掌声，只要你有勇气在这个舞台上演完自己，你就是成功的。</div>
+            </div>
         </div>
     </div>
-    <div class="section section2">
-        <div class="neirong">
-            <h3>我的技能</h3>
-            <!--<p>请查看右边的圆圈</p>-->
+    <div class="section section2" style="color: #0e101e">
+        <!--<div class="neirong">-->
+            <!--<h3>我的技能</h3>-->
+            <!--&lt;!&ndash;<p>请查看右边的圆圈</p>&ndash;&gt;-->
+        <!--</div>-->
+        <div class="slide">
+            <div class="box1"></div>
+
+            <div class="liaojie">
+                <p>了解PS、AI</p>
+                <span style="font-size: 13px">用PS进行图像、图形、文字处理，对图像做各种变换如放大、缩小、旋转、倾斜、镜像、透视等</span>
+                <div class="liaojieimg">
+                    <div class="img1"><img src="img/火箭.jpg" alt="" width="200" height="200"></div>
+                    <div class="img1"><img src="img/小蜜蜂.jpg" alt="" width="200" height="200"></div>
+                    <div class="img1"><img src="img/闪屏.jpg" alt="" width="200" height="200"></div>
+                </div>
+            </div>
         </div>
+        <div class="slide">
+            <div class="mokuai1">
+                <div class="mokuai1-1"><img src="img/2.jpg" alt="" width="170" height="170"></div>
+                <div class="mokuai1-2">
+                    HTML超文本标记语言，网页的本质就是超级文本标记语言，通过结合使用其他的Web技术，可以创造出功能强大的网页
+                    <br><br><br>
+                    掌握程度：☆☆☆☆☆
+                </div>
+            </div>
+            <div class="mokuai1">
+                <div class="mokuai1-1"><img src="img/3.jpg" alt="" width="170" height="170"></div>
+                <div class="mokuai1-2">
+                    CSS 能够对网页中元素位置的排版进行像素级精确控制，支持几乎所有的字体字号样式，拥有对网页对象和模型样式编辑的能力CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化
+                    <br><br>
+                    掌握程度：☆☆☆☆
+                </div>
+            </div>
+            <div class="mokuai1">
+                <div class="mokuai1-1"><img src="img/4.jpg" alt="" width="170" height="170"></div>
+                <div class="mokuai1-2">
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言
+                    <br><br><br>
+                    掌握程度：☆☆☆☆
+                </div>
+            </div>
+        </div>
+        <!--<div class="slide">三</div>-->
     </div>
     <div class="section section3">
         <div class="neirong">
@@ -54,13 +105,13 @@
                     <p>电商网页</p>
                     <div class="lianjie">
                         <a href="fanke/index2.html">凡客</a>
-                        <a style="margin-left:50px" href="mi/index.html">小米</a>
-                        <a style="margin-left:100px" href="tianmall/index.html">天猫</a>
-                        <a style="margin-left:150px" href="apple/index.html">苹果</a>
-                        <a style="margin-left:40px;margin-top:40px" href="jingdong/index.html">京东商城</a>
-                        <a style="margin-left:90px" href="sofa/index.html">沙发网</a>
-                        <a style="margin-left:140px" href="yintai/index.html">银泰网</a>
-                        <a style="margin-left:190px" href="yidong/index.html">中国移动</a>
+                        <a href="mi/index.html">小米</a>
+                        <a href="tianmall/index.html">天猫</a>
+                        <a href="apple/index.html">苹果</a>
+                        <a style="margin-top:40px" href="jingdong/index.html">京东商城</a>
+                        <a href="sofa/index.html">沙发网</a>
+                        <a href="yintai/index.html">银泰网</a>
+                        <a href="yidong/index.html">中国移动</a>
                     </div>
                 </div>
                 <div class="zhanshi2">
@@ -89,8 +140,17 @@
         </div>
     </div>
     <div class="section">
-        <h3>我的理想</h3>
+        <!--<h3>我的理想</h3>-->
         <!--<p>这是最后一屏</p>-->
+        <div class="mokuai2">
+            <p>就业岗位：前端开发→web前端工程师</p>
+            <p>就业地区：北京</p>
+            <p>工作环境和条件：1.公司规模较大，工作环境良好，工作设施完备；</p>
+            <p>2.公司的职工文化素质良好，人际关系良好，和谐，具有团队合作的精神。</p>
+            <p>公司的潜力与发展：1. 企业文化优秀，经营理念突出；</p>
+            <p>2.公司的领导人知人善用，公司国际、国内市场竞争力强；</p>
+            <p>3.公司内竞争公平</p>
+        </div>
     </div>
 </div>
 
