@@ -691,7 +691,7 @@ input[type=text]:focus{
 }
 .xiala{
 	/*display: none;*/
-	/*height: 0;*/
+	height: 0;
 	width: 99px;
     background: #fff;
     box-sizing: border-box;
