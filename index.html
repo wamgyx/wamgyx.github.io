@@ -5,12 +5,13 @@
     <title>个人主页</title>
     <link rel="stylesheet" href="css/jquery.fullPage.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css">
     <style>
         .section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
         #menu { margin: 0;position: fixed; left: 0px; top: 0px; list-style-type: none; z-index: 70;}
         #menu li { font-size: 14px;}
-        #menu a { color: #333; text-decoration: none;}
-        #menu .active a { color: #fff; background-color: #322d46;}
+        #menu a { color: #4e4c4c; text-decoration: none;}
+        #menu .active a {     color: rgba(252, 164, 50, 0.99);border-bottom: 2px solid rgba(252, 164, 50, 0.99);}
     </style>
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery.fullPage.min.js"></script>
@@ -20,38 +21,64 @@
 <body>
 
 <ul id="menu">
-    <li data-menuanchor="page1" class="active"><a href="#page1">我的简介</a></li>
+    <li data-menuanchor="page1" class="active"><a href="#page1">首页</a></li>
     <li data-menuanchor="page2"><a href="#page2">我的技能</a></li>
     <li data-menuanchor="page3"><a href="#page3">我的作品</a></li>
     <li data-menuanchor="page4"><a href="#page4">我的期望</a></li>
 </ul>
 
 <div id="dowebok">
-    <div class="section">
+    <div class="section ">
         <div class="neirong">
             <div class="pic"></div>
             <div class="name">
-                <p>王云霞个人简历</p>
                 <i>时间是一切财富中最宝贵的财富</i>
+                <div class="xian"></div>
+                <p class="animated swing">王云霞<br>前端工程师</p>
             </div>
-            <div class="jianjie1">
-                <p>我叫：王云霞</p>
-                <p>我读的学校：山西大学</p>
-                <p>我的专业：软件工程</p>
-                <p>我的擅长：前端</p>
-                <p>我爱做的事：爬山，运动</p>
-            </div>
-            <div class="jianjie2"></div>
-            <div class="jianjie3 jianjie4">
-                <p style="margin: 10px">我相信</p>
-                <div style="color: #4b495d;">爱拼才会赢，这不仅仅是一句宣言，而是一种态度。一种乐观向上的态度。一种端正的态度。请相信，有什么样的态度，就有什么样的结果。有什么样的态度，就有什么样的人生与未来。端正的态度，毫不夸张的说。就是成功了一大半。我们自己的态度，决定了我们的人生。</div>
-            </div>
-            <div class="jianjie3">
-                <p style="margin: 10px">我认为</p>
-                <div style="color: #4b495d;">社会就像一个大舞台，既然你登上了，你就是这个舞台的主角。无论你演的是什么角色，自己尽力演好就够了。不要顾及台下有无掌声，只要你有勇气在这个舞台上演完自己，你就是成功的。</div>
-            </div>
+            <!--<div class="jianjie1">-->
+                <!--<p>我叫：王云霞</p>-->
+                <!--<p>我读的学校：山西大学</p>-->
+                <!--<p>我的专业：软件工程</p>-->
+                <!--<p>我的擅长：前端</p>-->
+                <!--<p>我爱做的事：爬山，运动</p>-->
+            <!--</div>-->
+            <!--<div class="jianjie2"></div>-->
+            <!--<div class="jianjie3 jianjie4">-->
+                <!--<p style="margin: 10px">我相信</p>-->
+                <!--<div style="color: #4b495d;">爱拼才会赢，这不仅仅是一句宣言，而是一种态度。一种乐观向上的态度。一种端正的态度。请相信，有什么样的态度，就有什么样的结果。有什么样的态度，就有什么样的人生与未来。端正的态度，毫不夸张的说。就是成功了一大半。我们自己的态度，决定了我们的人生。</div>-->
+            <!--</div>-->
+            <!--<div class="jianjie3">-->
+                <!--<p style="margin: 10px">我认为</p>-->
+                <!--<div style="color: #4b495d;">社会就像一个大舞台，既然你登上了，你就是这个舞台的主角。无论你演的是什么角色，自己尽力演好就够了。不要顾及台下有无掌声，只要你有勇气在这个舞台上演完自己，你就是成功的。</div>-->
+            <!--</div>-->
         </div>
     </div>
+    <!--<div class="section">-->
+        <!--<div class="neirong">-->
+            <!--<div class="pic"></div>-->
+            <!--<div class="name">-->
+                <!--<p>王云霞个人简历</p>-->
+                <!--<i>时间是一切财富中最宝贵的财富</i>-->
+            <!--</div>-->
+            <!--<div class="jianjie1">-->
+                <!--<p>我叫：王云霞</p>-->
+                <!--<p>我读的学校：山西大学</p>-->
+                <!--<p>我的专业：软件工程</p>-->
+                <!--<p>我的擅长：前端</p>-->
+                <!--<p>我爱做的事：爬山，运动</p>-->
+            <!--</div>-->
+            <!--<div class="jianjie2"></div>-->
+            <!--<div class="jianjie3 jianjie4">-->
+                <!--<p style="margin: 10px">我相信</p>-->
+                <!--<div style="color: #4b495d;">爱拼才会赢，这不仅仅是一句宣言，而是一种态度。一种乐观向上的态度。一种端正的态度。请相信，有什么样的态度，就有什么样的结果。有什么样的态度，就有什么样的人生与未来。端正的态度，毫不夸张的说。就是成功了一大半。我们自己的态度，决定了我们的人生。</div>-->
+            <!--</div>-->
+            <!--<div class="jianjie3">-->
+                <!--<p style="margin: 10px">我认为</p>-->
+                <!--<div style="color: #4b495d;">社会就像一个大舞台，既然你登上了，你就是这个舞台的主角。无论你演的是什么角色，自己尽力演好就够了。不要顾及台下有无掌声，只要你有勇气在这个舞台上演完自己，你就是成功的。</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <div class="section section2" style="color: #0e101e">
         <!--<div class="neirong">-->
             <!--<h3>我的技能</h3>-->
