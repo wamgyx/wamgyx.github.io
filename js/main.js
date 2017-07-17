@@ -1,5 +1,16 @@
 $(function(){
     $(".xian").animate({"width":600},1000);
+    $(".img1").hover(function () {
+        $(this).addClass("animated pulse");
+    },function () {
+        $(this).removeClass("animated pulse");
+    })
+    $(".dianshang").hover(function () {
+        $(this).removeClass("rotateInUpRight");
+        $(this).addClass("shake");
+    },function () {
+        $(this).removeClass("shake");
+    })
     $('#dowebok').fullpage({
         sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
         'navigation': true,
@@ -7,45 +18,56 @@ $(function(){
         menu: '#menu',
         // continuousVertical: true
         afterLoad: function(anchorLink, index) {
+            if(index==1){
+                $(".name p").addClass("animated swing");
+                $(".pic").addClass("tada");
+            }
             if (index == 3) {
-                $('.section3').find('.zhanshi1').delay(0).animate({
-                    left: '0'
-                }, 1500, 'linear');
-                $('.section3').find('.zhanshi2').delay(10).animate({
-                    right: '0'
-                }, 1500, 'linear');
-                $('.section3').find('.zhanshi3').delay(10).animate({
-                    right: '0'
-                }, 1500, 'linear');
-                $(".lianjie a").eq(0).css("marginLeft",0);
-                $(".lianjie a").eq(1).css("marginLeft",50);
-                $(".lianjie a").eq(2).css("marginLeft",100);
-                $(".lianjie a").eq(3).css("marginLeft",150);
-                $(".lianjie a").eq(4).css("marginLeft",40);
-                $(".lianjie a").eq(5).css("marginLeft",90);
-                $(".lianjie a").eq(6).css("marginLeft",140);
-                $(".lianjie a").eq(7).css("marginLeft",190);
-                $(".zhanshi2 div a").css("marginTop",0);
-                $(".zhanshi3 div a").css("marginTop",0);
+                $(".dianshang").addClass("animated rotateInUpRight");
+            //     $('.section3').find('.zhanshi1').delay(0).animate({
+            //         left: '0'
+            //     }, 1500, 'linear');
+            //     $('.section3').find('.zhanshi2').delay(10).animate({
+            //         right: '0'
+            //     }, 1500, 'linear');
+            //     $('.section3').find('.zhanshi3').delay(10).animate({
+            //         right: '0'
+            //     }, 1500, 'linear');
+            //     $(".lianjie a").eq(0).css("marginLeft",0);
+            //     $(".lianjie a").eq(1).css("marginLeft",50);
+            //     $(".lianjie a").eq(2).css("marginLeft",100);
+            //     $(".lianjie a").eq(3).css("marginLeft",150);
+            //     $(".lianjie a").eq(4).css("marginLeft",40);
+            //     $(".lianjie a").eq(5).css("marginLeft",90);
+            //     $(".lianjie a").eq(6).css("marginLeft",140);
+            //     $(".lianjie a").eq(7).css("marginLeft",190);
+            //     $(".zhanshi2 div a").css("marginTop",0);
+            //     $(".zhanshi3 div a").css("marginTop",0);
             }
             if(index==2){
                 $(".liaojieimg .img1").css({opacity:1});
             }
         },
         onLeave: function(index,nextIndex,direction){
+            if(index==1){
+                $(".name p").removeClass("swing");
+                $(".pic").removeClass("tada");
+                console.log($(".name p"))
+            }
             if(index==3){
-                $('.section3').find('.zhanshi1').delay(0).animate({
-                    left: '-50%'
-                }, 1500, 'linear');
-                $('.section3').find('.zhanshi2').delay(10).animate({
-                    right: '-70%'
-                }, 1500, 'linear');
-                $('.section3').find('.zhanshi3').delay(10).animate({
-                    right: '-70%'
-                }, 1500, 'linear');
-                $(".lianjie a").css("marginLeft",-200);
-                $(".zhanshi2 div a").css("marginTop",-85);
-                $(".zhanshi3 div a").css("marginTop",-85);
+                $(".dianshang").removeClass("animated rotateInUpRight");
+            //     $('.section3').find('.zhanshi1').delay(0).animate({
+            //         left: '-50%'
+            //     }, 1500, 'linear');
+            //     $('.section3').find('.zhanshi2').delay(10).animate({
+            //         right: '-70%'
+            //     }, 1500, 'linear');
+            //     $('.section3').find('.zhanshi3').delay(10).animate({
+            //         right: '-70%'
+            //     }, 1500, 'linear');
+            //     $(".lianjie a").css("marginLeft",-200);
+            //     $(".zhanshi2 div a").css("marginTop",-85);
+            //     $(".zhanshi3 div a").css("marginTop",-85);
             }
             if(index==2){
                 $(".liaojieimg .img1").css({opacity:0});
