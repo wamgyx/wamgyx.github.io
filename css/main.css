@@ -177,7 +177,7 @@ ul{
     width: 50%;
     /*height: 100%;*/
     box-sizing: border-box;
-    margin: 60px 10px;
+    margin: 60px 0;
     background-color: rgba(255, 229, 133, 0.65);
     float: left;
     position: relative;
@@ -191,14 +191,14 @@ ul{
 .zhanshi1 p,.zhanshi2 p,.zhanshi3 p{
    color: #0d110d;
     font-size: 18px;
-    font-weight: 600;
+    /*font-weight: 600;*/
 }
 .zhanshi2,.zhanshi3{
-    width: 27%;
+    width: 50%;
     /*height: 100%;*/
     box-sizing: border-box;
     background-color: rgba(222, 147, 180, 0.58);
-    margin: 60px 10px;
+    margin: 60px 0;
     float: left;
     position: relative;
     /*right: -70%;*/
@@ -336,4 +336,16 @@ ul{
     left: 0;
     right: 0;
     margin: auto;
+}
+.zhanshi2-1 p,.zhanshi2-2 p{
+    text-align: left;
+    margin-left: 30px;
+}
+.zhanshi2-1 a{
+    width: 33%;
+    float: left;
+}
+.zhanshi2-2 a{
+    width: 33%;
+    float: left;
 }
