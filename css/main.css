@@ -320,7 +320,7 @@ ul{
 .mokuai2{
     width: 800px;
     height: 500px;
-    background-color: #322d46;
+    background-color: rgba(50, 45, 70, 0.44);
     margin: 0 auto;
     box-sizing: border-box;
     padding: 20px;
