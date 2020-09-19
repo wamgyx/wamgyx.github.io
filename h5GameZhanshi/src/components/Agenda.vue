@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="agendaW">
     <Row class="agenda-detail-row" style="margin-top: -4px">
       <Col class="agenda-detail-pr" :lg="{span: 8, push: 8}" :md="24" :sm="24" :xs="24">
         <Col class="agenda-title-pr">
@@ -16,7 +16,7 @@
           </Row>
 
           <Row class="agenda-title-text-row">
-            <Col class="agenda-title-text" span="5">تأهيلات</Col>
+            <!--<Col class="agenda-title-text" span="5">تأهيلات</Col>-->
             <!-- <Col class="agenda-title-text" span="5">تصفيات 1</Col>-->
             <Col class="agenda-title-text" span="5">تصفيات</Col>
             <Col class="agenda-title-text" span="5">أعلى 16</Col>
@@ -27,36 +27,36 @@
         </Col>
 
         <!-- 1 -->
-        <Col class="agenda-detail-col" span="5">
-          <Row style="display: table; width: 100%; height: 100%">
-            <Col style="min-width: 100%; display: table-cell; height: 960px;">
-              <Row
-                style="display: table-row; height: 60px;"
-                v-for="vs in versus.rank.match"
-                v-bind:key="vs[0]"
-              >
-                <div style="display: table-cell; vertical-align: middle;">
-                  <Versus :sid1="vs[0]" :sid2="vs[1]" :date="versus.rank.date" :status="vs[2]" />
-                </div>
-              </Row>
-            </Col>
-          </Row>
-        </Col>
-        <Col class="agenda-detail-col" span="5">
-          <Row style="display: table; width: 100%; height: 100%">
-            <Col style="min-width: 100%; display: table-cell; height: 960px;">
-              <Row
-                style="display: table-row; height: 60px;"
-                v-for="vs in versus.top16.match"
-                v-bind:key="vs[0]"
-              >
-                <div style="display: table-cell; vertical-align: middle;">
-                  <Versus :sid1="vs[0]" :sid2="vs[1]" :date="versus.top16.date" :status="vs[2]" />
-                </div>
-              </Row>
-            </Col>
-          </Row>
-        </Col>
+        <!--<Col class="agenda-detail-col" span="5">-->
+          <!--<Row style="display: table; width: 100%; height: 100%">-->
+            <!--<Col style="min-width: 100%; display: table-cell; height: 960px;">-->
+              <!--<Row-->
+                <!--style="display: table-row; height: 60px;"-->
+                <!--v-for="vs in versus.rank.match"-->
+                <!--v-bind:key="vs[0]"-->
+              <!--&gt;-->
+                <!--<div style="display: table-cell; vertical-align: middle;">-->
+                  <!--<Versus :sid1="vs[0]" :sid2="vs[1]" :date="versus.rank.date" :status="vs[2]" />-->
+                <!--</div>-->
+              <!--</Row>-->
+            <!--</Col>-->
+          <!--</Row>-->
+        <!--</Col>-->
+        <!--<Col class="agenda-detail-col" span="5">-->
+          <!--<Row style="display: table; width: 100%; height: 100%">-->
+            <!--<Col style="min-width: 100%; display: table-cell; height: 960px;">-->
+              <!--<Row-->
+                <!--style="display: table-row; height: 60px;"-->
+                <!--v-for="vs in versus.top16.match"-->
+                <!--v-bind:key="vs[0]"-->
+              <!--&gt;-->
+                <!--<div style="display: table-cell; vertical-align: middle;">-->
+                  <!--<Versus :sid1="vs[0]" :sid2="vs[1]" :date="versus.top16.date" :status="vs[2]" />-->
+                <!--</div>-->
+              <!--</Row>-->
+            <!--</Col>-->
+          <!--</Row>-->
+        <!--</Col>-->
         <!-- 2 -->
         <Col class="agenda-detail-col" span="5">
           <Row style="display: table; width: 100%; height: 100%">
@@ -356,23 +356,23 @@ export default {
         top8: {
           date: "2020-09-18",
           match: [
-            [34, 41, 0],
-            [54, 73, 0],
-            [31, 127, 0],
-            [56, 74, 0],
-            [27, 57, 0],
-            [2, 13, 0],
-            [36, 55, 0],
-            [62, 1, 0],
+            [34, 41, 1],
+            [54, 73, 1],
+            [31, 127, 1],
+            [56, 74, 2],
+            [27, 57, 1],
+            [2, 13, 1],
+            [36, 55, 1],
+            [62, 1, 1],
           ]
         },
         top4: {
           date: "2020-09-25",
           match: [
-            [0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0],
+            [74, 34, 0],
+            [54, 27, 0],
+            [2, 62, 0],
+            [31, 36, 0],
           ]
         },
         top2: {
@@ -532,7 +532,7 @@ export default {
 .agenda-title-select-pr {
   display: inline-block;
   float: none;
-  width: 20.8333%;
+  width: 20%;
 }
 
 .agenda-title-select {
@@ -569,7 +569,8 @@ export default {
   display: inline-block;
   width: 100%;
   /* height: 3300px; */
-  height: 2700px;
+  /*height: 2700px;*/
+  height: 1200px;
 }
 
 .agenda-detail-pr {
@@ -611,4 +612,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+    .agendaW .ivu-col-span-5{
+        width: 20%;
+    }
 </style>
